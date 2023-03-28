@@ -1,3 +1,4 @@
+
 .footerBox{
     text-align: center;
     background-color: #f1f1f1;
@@ -19,6 +20,11 @@ ul{
     color: white !important;
     text-decoration: none;
     margin: 0.5rem;
+}
+
+
+.facebook{
+    color: fuchsia;
 }
 .facebook :hover{
     color:  #4267B2;
