@@ -4,13 +4,14 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-
+import CardCSS from '../css/Card.module.css';
 
 export default function ActionAreaCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className={CardCSS.cards}>
       <CardActionArea>
-        <CardMedia
+        <CardMedia 
+          className={CardCSS.image}
           component="img"
           height="140"
           image="/img/mano-que-sostiene-cubo-madera-destino.jpg"
