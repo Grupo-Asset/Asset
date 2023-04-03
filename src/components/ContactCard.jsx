@@ -4,27 +4,32 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import { useState } from 'react';
+import Contactos from '../assets/Service/holdedConection';
 
 
-export default function ActionAreaCard() {
+
+const Contador = () => {
+  const [contador, setContador]= useState(0);
+  return <button onClick={()=> setContador(contador + 1)}>{contador} Contador</button>;
+}
+
+
+
+
+export default function ContactCard() {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          height="140"
-          image="/img/mano-que-sostiene-cubo-madera-destino.jpg"
-          alt="mision y vision"
-        />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            
             Mision y vision
           </Typography>
-          
+          <Contactos/>
           <Typography variant="body2" color="text.secondary">
             Lizards are a widespread group of squamate reptiles, with over 6,000
             species, ranging across all continents except Antarctica
+            <Contador/>
           </Typography>
         </CardContent>
       </CardActionArea>

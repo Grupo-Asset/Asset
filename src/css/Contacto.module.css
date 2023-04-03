@@ -1,0 +1,9 @@
+.nombre{
+    display:flex;
+    margin: auto;
+    background-color: red;
+}
+.email{
+    margin: auto;
+    display: flex;
+}

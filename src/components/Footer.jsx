@@ -24,6 +24,7 @@ function Footer() {
     </a>
   </li>
   <li className={FooterCSS.footerLi}>
+    
     <a className={`${FooterCSS.footerA} ${FooterCSS.instagram}`} href="#">
       <InstagramIcon/>
     </a>
