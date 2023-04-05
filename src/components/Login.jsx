@@ -79,7 +79,7 @@ export default function App() {
               // html input attribute
               name="email"
               type="email"
-              placeholder="johndoe@email.com"
+              placeholder="unmailincreible@gmail.com.ar"
             />
           </FormControl>
           <FormControl>
@@ -88,7 +88,7 @@ export default function App() {
               // html input attribute
               name="password"
               type="password"
-              placeholder="password"
+              placeholder="contraseña"
             />
           </FormControl>
 
