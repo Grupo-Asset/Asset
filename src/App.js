@@ -6,8 +6,9 @@ import Cards from './components/Cards';
 //import Login from './components/Login';
 import Background from './components/Background';
 import Footer from './components/Footer.jsx';
-import testConectiones from './assets/Service/holdedConection';
+import testConectiones from './Service/holdedConection';
 import ContactCard from './components/ContactCard';
+
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
         <>
         <Cards className="card"/>
         <ContactCard/>
+        </>
+        <>
+        
         </>
       </div>
       <div className="footer">

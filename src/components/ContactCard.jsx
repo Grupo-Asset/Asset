@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import { useState } from 'react';
-import Contactos from '../assets/Service/holdedConection';
+import Contactos from '../Service/holdedConection';
 
 
 
