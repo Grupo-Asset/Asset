@@ -92,7 +92,7 @@ console.log(usuario);
 orderData.user = usuario;
 console.log(orderData);
 
-setOrderData(orderData);
+
 
 // const postVenta = async () => {
 //   try {
