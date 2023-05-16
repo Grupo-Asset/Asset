@@ -5,7 +5,7 @@ const CompraContext = React.createContext();
 
 export function CompraProvider(props){
     const [isLoading, setIsLoading] = useState(false);
-    const [orderData, setOrderData] = useState({ quantity: "1", price: "0", amount: 10, description: "Terreno",cards: 0, storage:1, guarderia:0, sum:0, user: {},sku:0 });
+    const [orderData, setOrderData] = useState({ quantity: "1", price: "0", amount: 0, description: "Terreno",cards: 0, storage:1, guarderia:0, sum:0, user: {},sku:0 });
     const [cargaron, setCargaronProductos]= useState(false);
     const [producto, setProducto]= useState(null)
     const productos = useProducto(); 
@@ -13,25 +13,31 @@ export function CompraProvider(props){
     
     useEffect(()=>{
         async function cargarProductos(){
-            if(cargaron){
-                setCargaronProductos(false);
-                return;
-            }
+            if(!cargaron){
+                
+                
+            
 
             try{
                 const producto = await productos();
                 setProducto(producto);
-                // alert("compra-context");
-                // alert(producto)
+                console.log("compra-context");
+                console.log(producto);
                 setCargaronProductos(true);
             }catch (error){
                 console.log(error);
+            }
+            return
+            }else{
+                setCargaronProductos(true);
             }
         }
     cargarProductos(); 
     }, []);
 
     const value = React.useMemo(()=>{
+        alert("cambio")
+        console.log(orderData)
         return({
             producto,
             cargaron,

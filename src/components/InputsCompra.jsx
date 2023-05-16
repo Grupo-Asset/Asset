@@ -4,7 +4,7 @@ import useProducto from '../Service/APIproducto';
 import { initMercadoPago } from "@mercadopago/sdk-react";
 import Payment from "./Payment";
 import Checkout from "./Checkout";
-
+import {useCompra, CompraProvider} from '../context/compra-context'
 import InternalProvider from "../Service/ContextProvider";
 import { SpinnerCircular } from 'spinners-react';
 
@@ -33,13 +33,19 @@ initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd");
 
 
 //Test user 2 comprador TTEST65297
+export default () => 
+<CompraProvider>
+  <RadioInputs></RadioInputs>
+</CompraProvider>
 
-export default function RadioInputs() {
 
+ function RadioInputs() {
+//nuevo contexto:
+const {orderData, producto, cargaron, setOrderData}= useCompra();
 //MERCADO PAGO 
   const [preferenceId, setPreferenceId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [orderData, setOrderData] = useState({ quantity: "1", price: "0", amount: 0, description: "Terreno",cards: 0, storage:1, guarderia:0, sum:0, user: {} });
+  //const [orderData, setOrderData] = useState({ quantity: "1", price: "0", amount: 10, description: "Terreno",cards: 0, storage:1, guarderia:0, sum:0, user: {} });
 //FIN DE MERCADO PAGO
 
   const [input2Disabled, setInput2Disabled] = useState(true );
@@ -47,13 +53,14 @@ export default function RadioInputs() {
   const [input4Disabled, setInput4Disabled] = useState(true );
   const [input5Disabled, setInput5Disabled] = useState(true );
   const [input6Disabled, setInput6Disabled] = useState(true ); 
-  const [cargaron,             setCargaron] = useState(false);
+  //const [cargaron,             setCargaron] = useState(false);
   const [selectedTerreno,         setSelectedTerreno]         = useState('');
   const [selectedAlmacenamiento,  setSelectedAlmacenamiento]  = useState('');
   const [selectedCard,            setSelectedCard]            = useState('');
   const [selectedGuarderia,       setSelectedGuarderia]       = useState('');
   const [selectedSUM,             setSelectedSUM]             = useState('');
   const [selectedPago,            setSelectedPago]            = useState('');
+  const [showCheckout, setShowCheckout] = useState(false);
   
   
   
@@ -85,77 +92,77 @@ console.log(usuario);
 orderData.user = usuario;
 console.log(orderData);
 
+setOrderData(orderData);
 
-
-const postVenta = async () => {
-  try {
-    const response = await fetch(`http://localhost:8080/v1/venta`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(request)
-    });
-    if (response.status > 200 || response.status <= 300) {
-      console.log(response.status)
-      console.log(await response.json());
-          if(response.status === 201){
+// const postVenta = async () => {
+//   try {
+//     const response = await fetch(`http://localhost:8080/v1/venta`, {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(request)
+//     });
+//     if (response.status > 200 || response.status <= 300) {
+//       console.log(response.status)
+//       console.log(await response.json());
+//           if(response.status === 201){
               
-              return response.status;
-          }
-          else if (response.status === 400){
+//               return response.status;
+//           }
+//           else if (response.status === 400){
               
-              return response.status;
-          }
-          else if (response.status === 409){
+//               return response.status;
+//           }
+//           else if (response.status === 409){
 
-              return response.status;
-          }
-          else if (response.status === 500){
+//               return response.status;
+//           }
+//           else if (response.status === 500){
 
-              return response.status;
-          }
-    }
+//               return response.status;
+//           }
+//     }
     
-  else if (response.status !==200){
-      let errorMessage = 'Ha ocurrido un error.';
-      throw new Error(errorMessage);
-  }
-  else if (response.status === 400) {
-    let errorMessage = 'Lote altan datos requeridos en la solicitud.';
-      throw new Error(errorMessage);
-      } 
-  else if (response.status === 409) {
-    let errorMessage = 'El usuario ya ha sido registrado previamente.';
-        throw new Error(errorMessage);
-      }
+//   else if (response.status !==200){
+//       let errorMessage = 'Ha ocurrido un error.';
+//       throw new Error(errorMessage);
+//   }
+//   else if (response.status === 400) {
+//     let errorMessage = 'Lote altan datos requeridos en la solicitud.';
+//       throw new Error(errorMessage);
+//       } 
+//   else if (response.status === 409) {
+//     let errorMessage = 'El usuario ya ha sido registrado previamente.';
+//         throw new Error(errorMessage);
+//       }
       
     
   
-    const data = await response.json();
-    console.log("se ejecuto registro");
-    console.log(data);
+//     const data = await response.json();
+//     console.log("se ejecuto registro");
+//     console.log(data);
   
 
-} catch (error) {
-console.error(error.message);
-console.error(error.status);
-    // Puedes manejar el error de otra manera, por ejemplo, mostrar un mensaje de error en la aplicación.
-  }
-}
-const productos = useProducto();
-useEffect(() => {
-  async function cargarProductos(){
-    if(!cargaron){
-      await productos();
+// } catch (error) {
+// console.error(error.message);
+// console.error(error.status);
+//     // Puedes manejar el error de otra manera, por ejemplo, mostrar un mensaje de error en la aplicación.
+//   }
+// }
+// const productos = useProducto();
+// useEffect(() => {
+//   async function cargarProductos(){
+//     if(!cargaron){
+//       await productos();
       
       
       
-      setCargaron(true)
-    }
-  }
-  cargarProductos();
-}, [cargaron, productos]);
+//       setCargaron(true)
+//     }
+//   }
+//   cargarProductos();
+// }, [cargaron, productos]);
 
 useEffect(() => {cardRef.current.scrollIntoView({ behavior: 'smooth' });}, [selectedTerreno]);
 
@@ -177,7 +184,7 @@ useEffect(() => {sumRef.current.scrollIntoView({ behavior: 'smooth' });}, [selec
 
 const handleClick = () => {
   setIsLoading(true);
-  postVenta();
+  
   fetch("http://localhost:8080/create_preference", {
     method: "POST",
     headers: {
@@ -227,9 +234,8 @@ const renderSpinner = () => {
 
 if(cargaron){
 
-  const productoJson = sessionStorage.getItem('productos');
-  const producto = productoJson ? JSON.parse(productoJson) : null;
-
+console.log("from cargaron")
+console.log(producto)
 
 
 
@@ -262,8 +268,15 @@ const handleSelectTerreno = (event) => {
     } else {
       setInput2Disabled(true);
     }
+    if (event.target.value !== '') {
+      setShowCheckout(true);
+    } else {
+      setShowCheckout(false);
+    }
   };
-
+  const handleClick = () => {
+    // Lógica para el evento onClick del Checkout
+  };
 
 
 
@@ -568,7 +581,7 @@ const handleSelectSUM = (event) => {
       </div> */}
             {/* mercado pago */}
             <InternalProvider context={{ preferenceId, isLoading, orderData, setOrderData }}>
-      <main>
+      <main className={InputCSS.checkout}>
         {renderSpinner()}
         <Checkout onClick={handleClick} description/>
         <Payment />
@@ -577,13 +590,12 @@ const handleSelectSUM = (event) => {
     </InternalProvider>
     {/* fin mercado pago */}
     </div>
-    
-
 
 
   );
 }else{
-
+  console.log('descargados')
+  console.log(producto)
   return(
     <div>
     <div>
