@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import useContactos from '../Service/APIlogin';
+// import useContactos from '../Service/APIlogin';
+import {login} from '../Service/APIusuario'
 import LoginCSS from '../css/Login.module.css';
 // import LoginCSS from '../css/LoginBlack.module.css'
 import { SpinnerCircular } from 'spinners-react';
@@ -24,7 +25,7 @@ export default function SignIn() {
 
  
   
-  const contactos = useContactos();
+  // const contactos = useContactos();
   // if(usuario!=null || !usuario==[]){
   // console.log(usuario[0].name)}
 
@@ -34,7 +35,7 @@ export default function SignIn() {
   const handleSubmit = async (event) => {
     setIsLoading(true);
     event.preventDefault();
-    const response = await contactos(email, password);
+    const response = await login(email, password);
     setIsLoading(false);
 
     if (!response) {
