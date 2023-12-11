@@ -17,6 +17,8 @@ import FormHelperText from '@mui/material/FormHelperText';
 
 import LoginCSS from '../css/Login.module.css';
 import useRegistro from '../Service/APIregister';
+import {register} from '../Service/APIusuario'
+
 
 const theme = createTheme({
   palette: {
