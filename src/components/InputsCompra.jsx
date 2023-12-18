@@ -3,6 +3,8 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import InputCSS from '../css/Inputs.module.css';
 import useProducto from '../Service/APIproducto';
 import useServicio from '../Service/APIservicio';
+import {getProductos, getServicios } from '../Service/APIinventario'
+
 import {useDolar }    from '../Service/APIdolar';
 import { initMercadoPago } from "@mercadopago/sdk-react";
 import numeral from 'numeral';
@@ -220,8 +222,10 @@ useEffect(()=>{
 },[orderData, setOrderData,selectedTerreno, selectedCard, selectedAlmacenamiento, selectedGuarderia, selectedSUM, selectedCW]);
 
 //
-const productos = useProducto();
-const servicios = useServicio();
+// const productos = useProducto();
+// const servicios = useServicio();
+const productos = getProductos();
+const servicios = getServicios();
 
 
 useEffect(() => {

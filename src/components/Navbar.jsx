@@ -8,6 +8,7 @@ import IslandNotification from './IslandNotification';
 import useContactos from '../Service/APIlogin';
 import {suscrbirUsuario} from '../Service/APIfunnel'
 import  {Context} from '../context/notification-context'
+import {login} from '../Service/APIusuario'
 
 
 
@@ -99,8 +100,9 @@ function Navbar() {
     }
   };
 
-  const handleLogin = (email, password) => {
-    Contactos(email, password);
+  const handleLogin = async (email, password) => {
+    // Contactos(email, password);
+     await  login(email, password)
     setShowLogin(false); // Ocultar el login después de iniciar sesión
     window.scrollTo({
       top: 0,
