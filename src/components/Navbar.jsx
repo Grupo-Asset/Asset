@@ -2,10 +2,10 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import NavbarCSS from '../css/Navbar.module.css';
 import Login from './Login';
-import Contactos from "../Service/APIlogin";
+// import Contactos from "../Service/APIlogin";
 import NavbarBlackCSS from '../css/NavbarBlack.module.css';
 import IslandNotification from './IslandNotification';
-import useContactos from '../Service/APIlogin';
+// import useContactos from '../Service/APIlogin';
 import {suscrbirUsuario} from '../Service/APIfunnel'
 import  {Context} from '../context/notification-context'
 import {login} from '../Service/APIusuario'
@@ -18,7 +18,7 @@ const status = Object.fromEntries(urlParams).status;
 console.log(Object.fromEntries(urlParams));
 
 function Navbar() {
-  const contactos = useContactos();
+  // const contactos = useContactos();
   const location = useLocation();
   const isShopPage = location.pathname === '/shop';
   const compraJson = sessionStorage.getItem('compra');
@@ -181,7 +181,7 @@ function Navbar() {
             <button
               className={NavbarCSS.btn}
               onMouseEnter={handleMouseEnter} // Selecciona el evento onMouseEnter condicionalmente
-              onClick={() => { usuario && contactos(usuario.email, usuario.password) }}
+              onClick={() => { usuario && login(usuario.email, usuario.password) }}
             >
               {displayName()}
             </button>
