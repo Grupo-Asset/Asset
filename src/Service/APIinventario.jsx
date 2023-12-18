@@ -16,7 +16,7 @@ async function getProductos() {
       }
   
       const data = await response.json();
-      alert(data)
+      // alert(data)
       sessionStorage.setItem('productos', JSON.stringify(data));
 
       // Puedes realizar acciones adicionales con los datos de respuesta si es necesario.

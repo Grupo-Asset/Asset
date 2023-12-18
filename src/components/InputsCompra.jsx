@@ -116,7 +116,8 @@ export default function RadioInputs({seleccion}) {
   const [selectedCW,              setSelectedCW]              = useState('');
   const [financiacionGrid,        setFinanciationGrid]        = useState('contado');
   const [selectedFinanciation,    setSelectedFinanciation]    = useState(parseFloat(1));
-  
+  const [productos, setProductos] = useState(false);
+  const [servicios, setServicios] = useState(false);
 
   const urlParams = new URLSearchParams(window.location.search);
   const status = Object.fromEntries(urlParams).status;
@@ -224,15 +225,15 @@ useEffect(()=>{
 //
 // const productos = useProducto();
 // const servicios = useServicio();
-const productos = getProductos();
-const servicios = getServicios();
 
 
 useEffect(() => {
   async function cargar(){
     if(!cargaron){
-      await productos;
-      await servicios;
+      await setProductos(getProductos());
+      await setServicios(getServicios());
+      console.log(productos)
+      
       setCargaron(true);
       
     }
@@ -240,7 +241,7 @@ useEffect(() => {
   // console.log("servicios:", servicios);
   cargar();
   
-}, [servicios,productos]);
+}, []);
 
   useEffect(() => {
     if (usuario) setShowLoged(false);
@@ -315,9 +316,9 @@ useEffect(() => {
 
 
 
-function checkSKUByName(name) {
-
-  const obj = productos.find(item => item.name === name);
+async function checkSKUByName(name) {
+  
+  const obj = await productos.find(item => item.name === name);
   if (obj.sku) {
     return obj.sku;
   } else {
@@ -326,7 +327,6 @@ function checkSKUByName(name) {
 }
 
 function checkStockByName(name) {
-
   const obj = productos.find(item => item.name === name);
   if (obj && obj.stock > 0) {
     return true;
@@ -335,7 +335,7 @@ function checkStockByName(name) {
   }
 }
 
-function checkPriceByName(name) {
+async function checkPriceByName(name) {
   const obj = productos.find(item => item.name === name);
   if (obj && obj.price > 0) {
     return obj.price;
@@ -695,6 +695,15 @@ orderData.dolarValue = dolarValue;
     // className={selectedTerreno? "" : InputCSS.transparency50}
 
 if(cargaron){
+
+
+
+
+
+
+
+
+  
 
   return (
     
