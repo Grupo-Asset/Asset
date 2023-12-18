@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useEditarUsuario from '../Service/APIeditarUsuario';
 import PerfilCSS from '../css/Perfil.module.css';
+import {updateUser} from '../Service/APIusuario'
 
 function LanguageCard({ onLanguageSelect }) {
   const [language, setLanguage] = useState('');
@@ -25,7 +26,8 @@ function LanguageCard({ onLanguageSelect }) {
       usuario.lang='pt'
     }
     
-    editar(usuario);
+    // editar(usuario);
+    updateUser(usuario);
   }
 
   return (

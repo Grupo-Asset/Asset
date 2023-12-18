@@ -141,17 +141,18 @@ const Register = ({ Registro }) => {
       return; // Detener el envío del formulario si hay errores
     }
 
-    const res = await registro(usuario, () => {
+    const res = await register(usuario, () => {
       console.log("usuario enviado a api.jsx");
     });
 
-    if (res === 201) {
+
+    if (res.status === 201) {
       setShow201(true);
-    } else if (res === 400) {
+    } else if (res.status === 400) {
       setShow400(true);
-    } else if (res === 409) {
+    } else if (res.status === 409) {
       setShow409(true);
-    } else if (res === 500) {
+    } else if (res.status === 500) {
       setShow500(true);
     }
   };
@@ -316,6 +317,7 @@ const Register = ({ Registro }) => {
             </Typography>
           )}
         </Box>
+        
       </Container>
     </ThemeProvider>
   );

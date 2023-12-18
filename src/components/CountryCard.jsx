@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PlacesAutocomplete from './GooglePlace';
 import useEditarUsuario from '../Service/APIeditarUsuario'
 import PerfilCSS from '../css/Perfil.module.css'
+import {updateUser} from '../Service/APIusuario'
 
 function AddressCard() {
   const [address, setAddress] = useState('');
@@ -28,7 +29,8 @@ function AddressCard() {
       .then((address) => {
         // console.log('Dirección:', JSON.stringify(address));
         usuario.address = address;
-        editar(usuario);
+        // editar(usuario);
+        updateUser(usuario);
       })
       .catch((error) => {
         console.log('Error al obtener la dirección:', error);

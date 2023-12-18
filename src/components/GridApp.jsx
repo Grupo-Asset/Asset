@@ -22,6 +22,7 @@ import { SpinnerCircular } from 'spinners-react';
 import Checkout from "./Checkout";
 import GridCSS from "../css/Grid.module.css"
 import { Background } from '@cloudinary/url-gen/qualifiers';
+import {updateUser} from '../Service/APIusuario'
 
 
 import PDFViewer from '../components/PDFViewer';
@@ -120,7 +121,8 @@ export function CardGrid2({ handleClick }) {
   };
   const handleTelefonoClick = () => { 
     usuario.mobile = mobile;
-    editar(usuario);
+    // editar(usuario);
+    updateUser(usuario);
   };
 
   
