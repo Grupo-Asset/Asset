@@ -315,8 +315,8 @@ useEffect(() => {
 
 
 
-async function checkSKUByName(name) {
-  const obj = await productos.find(item => item.name === name);
+function checkSKUByName(name) {
+  const obj = productos.find(item => item.name === name);
   if (obj.sku) {
     return obj.sku;
   } else {
@@ -324,9 +324,9 @@ async function checkSKUByName(name) {
   }
 }
 
-async function checkStockByName(name) {
+function checkStockByName(name) {
 
-  const obj = await productos.find(item => item.name === name);
+  const obj = productos.find(item => item.name === name);
   if (obj && obj.stock > 0) {
     return true;
   } else {
@@ -334,7 +334,7 @@ async function checkStockByName(name) {
   }
 }
 
-async function checkPriceByName(name) {
+function checkPriceByName(name) {
   console.log(productos)
   const obj = productos.find(item => item.name === name);
   if (obj && obj.price > 0) {
@@ -344,6 +344,12 @@ async function checkPriceByName(name) {
     return 0;
   }
 }
+
+function randomNum(){return 123}
+const randomNumber = () => {return 666}
+
+
+
 const servicePrice = (name2find) => {
   
   // console.log(servicios);
@@ -736,7 +742,7 @@ if(cargaron === true){
               onChange={handleSelectTerreno}
               disabled={!checkStockByName("Lote 1")} 
               />
-            F1 </span> <div><span className={InputCSS['precio']}>${numeral(checkPriceByName("Lote 1")*selectedFinanciation.toFixed(2)).format('0,0.00')}</span>  {!checkStockByName("Lote 1") && <div className={InputCSS['end']}>  <span className={InputCSS['noDisp']}>‎ Lote no disponible</span></div>}</div>
+            F1 </span> <div><span className={InputCSS['precio']}>${numeral((checkPriceByName("Lote 1")*selectedFinanciation).toFixed(2)).format('0,0.00')}</span>  {!checkStockByName("Lote 1") && <div className={InputCSS['end']}>  <span className={InputCSS['noDisp']}>‎ Lote no disponible</span></div>}</div>
           </label>
         <label className={`${InputCSS['radioInput']} ${selectedTerreno === 'Lote 2' ? InputCSS.selected : ''}`}>
           <span><input 
@@ -1085,7 +1091,7 @@ if(cargaron === true){
     
   );
 }else{
-
+  
   return(
     <div>
     <div>
@@ -1101,7 +1107,7 @@ if(cargaron === true){
             readOnly
             
             />
-          F 1 
+          F 1 mock
         </label>
       <label className={`${InputCSS['radioInput']} ${selectedTerreno === 'Lote 2' ? InputCSS.selected : ''}`}>
         <span><input 
