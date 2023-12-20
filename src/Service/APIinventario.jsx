@@ -16,12 +16,12 @@ async function getProductos() {
       }
   
       const data = await response.json();
-      // alert(data)
-      sessionStorage.setItem('productos', JSON.stringify(data));
+      // alert(JSON.stringify(data.data))
+      sessionStorage.setItem('productos', JSON.stringify(data.data));
 
       // Puedes realizar acciones adicionales con los datos de respuesta si es necesario.
   
-      return data;
+      return data.data;
     } catch (error) {
       console.error('There was a problem with the login operation:', error);
       throw error; // Puedes manejar el error de otra manera si es necesario.
@@ -43,12 +43,12 @@ async function getProductos() {
         }
     
         const data = await response.json();
-        sessionStorage.setItem('servicios', JSON.stringify(data));
+        sessionStorage.setItem('servicios', JSON.stringify(data.data));
 
   
         // Puedes realizar acciones adicionales con los datos de respuesta si es necesario.
     
-        return data;
+        return data.data;
       } catch (error) {
         console.error('There was a problem with the login operation:', error);
         throw error; // Puedes manejar el error de otra manera si es necesario.

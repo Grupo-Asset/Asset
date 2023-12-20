@@ -116,9 +116,9 @@ export default function RadioInputs({seleccion}) {
   const [selectedCW,              setSelectedCW]              = useState('');
   const [financiacionGrid,        setFinanciationGrid]        = useState('contado');
   const [selectedFinanciation,    setSelectedFinanciation]    = useState(parseFloat(1));
-  const [productos, setProductos] = useState(false);
-  const [servicios, setServicios] = useState(false);
-
+  const [productos, setProductos] = useState([]);
+  const [servicios, setServicios] = useState([]);
+  
   const urlParams = new URLSearchParams(window.location.search);
   const status = Object.fromEntries(urlParams).status;
   // console.log("params del link:",Object.fromEntries(urlParams))
@@ -225,22 +225,21 @@ useEffect(()=>{
 //
 // const productos = useProducto();
 // const servicios = useServicio();
-
-
 useEffect(() => {
   async function cargar(){
     if(!cargaron){
-      await setProductos(getProductos());
-      await setServicios(getServicios());
-      console.log(productos)
+      const prods = await getProductos();
+      const servs = await getServicios();
+      
+      setProductos(prods);
+      setServicios(servs);
+      
+      console.log(" finalizo y dice:",productos);
       
       setCargaron(true);
-      
     }
   }
-  // console.log("servicios:", servicios);
   cargar();
-  
 }, []);
 
   useEffect(() => {
@@ -317,7 +316,6 @@ useEffect(() => {
 
 
 async function checkSKUByName(name) {
-  
   const obj = await productos.find(item => item.name === name);
   if (obj.sku) {
     return obj.sku;
@@ -326,8 +324,9 @@ async function checkSKUByName(name) {
   }
 }
 
-function checkStockByName(name) {
-  const obj = productos.find(item => item.name === name);
+async function checkStockByName(name) {
+
+  const obj = await productos.find(item => item.name === name);
   if (obj && obj.stock > 0) {
     return true;
   } else {
@@ -336,8 +335,10 @@ function checkStockByName(name) {
 }
 
 async function checkPriceByName(name) {
+  console.log(productos)
   const obj = productos.find(item => item.name === name);
   if (obj && obj.price > 0) {
+    console.log(obj.price)
     return obj.price;
   } else {
     return 0;
@@ -694,7 +695,7 @@ orderData.dolarValue = dolarValue;
     }
     // className={selectedTerreno? "" : InputCSS.transparency50}
 
-if(cargaron){
+if(cargaron === true){
 
 
 
