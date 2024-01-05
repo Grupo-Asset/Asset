@@ -4,8 +4,8 @@ import InputCSS from '../css/Inputs.module.css';
 import useProducto from '../Service/APIproducto';
 import useServicio from '../Service/APIservicio';
 import {getProductos, getServicios } from '../Service/APIinventario'
-
-import {useDolar }    from '../Service/APIdolar';
+import { getDolarAmbito } from '../Service/APIpagos';
+// import {useDolar }    from '../Service/APIdolar';
 import { initMercadoPago } from "@mercadopago/sdk-react";
 import numeral from 'numeral';
 import Checkout from "./Checkout";
@@ -52,21 +52,24 @@ export default function RadioInputs({seleccion}) {
 
 
   
-    const valorDolar = useDolar();
+    // const valorDolar = useDolar();
     // const [dolarValue, setDolarValue] = useState(null);
-    
+    const valorDolar = getDolarAmbito();
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const value = await valorDolar;
-          if(value){setDolarValue(parseInt(await value));
-          }else{
-            setDolarValue(500)
-          }
-          
+          const value = await valorDolar
+          setDolarValue(parseInt(await value));
+        console.log('valor dolarValue',await dolarValue, 
+                    '\nvalue=', await value);
+         if(!value){
+          setDolarValue(sessionStorage.getItem('dolar'))
+         }
+           
           
         } catch (error) {
           console.error(error);
+
         }
       };
   
@@ -76,7 +79,7 @@ export default function RadioInputs({seleccion}) {
     
   
     useEffect(() => {
-      console.log(dolarValue);
+      console.log('valor dolar ambito finaciero',dolarValue);
     }, [dolarValue]);
   // const [preferenceId, setPreferenceId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -335,10 +338,10 @@ function checkStockByName(name) {
 }
 
 function checkPriceByName(name) {
-  console.log(productos)
+  // console.log(productos)
   const obj = productos.find(item => item.name === name);
   if (obj && obj.price > 0) {
-    console.log(obj.price)
+    // console.log(obj.price)
     return obj.price;
   } else {
     return 0;
@@ -558,7 +561,7 @@ orderData.dolarValue = dolarValue;
     setFinanciationGrid(value.grid)
     orderData.amount = calculateAmount(value.financiation, selectedTerreno, selectedAlmacenamiento, selectedGuarderia, selectedSUM, selectedCW);
     handleClick();
-    handleClick();
+    // handleClick();
     
     
   };

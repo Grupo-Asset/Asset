@@ -22,8 +22,8 @@ function App() {
   // }
   const [notification, setNotification] = useState(null);
   const [playAnimation, setPlayAnimation] = useState(false);
-    const [preferenceId, setPreferenceId] = useState(null);
-    const [dolarValue, setDolarValue] = useState(null);
+  const [preferenceId, setPreferenceId] = useState(null);
+  const [dolarValue, setDolarValue] = useState(1000);
   const [isLoading, setIsLoading] = useState(false);
   const [orderData, setOrderData] = useState(
     { 
@@ -53,6 +53,8 @@ function App() {
   const activar = (valor) => {
     setPlayAnimation(valor);
   }
+
+  
   // useEffect(() => {
       
   //   if(notification){

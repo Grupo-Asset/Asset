@@ -6,7 +6,7 @@ const APIComponent = ({ id, setPdf, docType }) => {
       try {
         console.log(id, docType);
         const response = await fetch(
-          `http://localhost:8080/v1/getFacturaPDF?id=${id}&docType=${docType}`
+          `http://localhost:8080/payments/${docType}/${id}`
         );
         if (!response.ok) {
           throw new Error(

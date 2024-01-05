@@ -9,7 +9,8 @@ import AddressCard from './CountryCard';
 import LanguageCard from './LenguageCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faKey, faIdCard, faCalendar, faPlus, faShapes,faHouseLaptop, faCalendarCheck, faMoneyCheckDollar, faFileInvoiceDollar, faFileLines, faGears, faFolderOpen, faHouseChimneyUser, faVenusMars, faBox, faLocationDot, faUser, faLanguage, faMobile, faAt, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
-import {useDolar }    from '../Service/APIdolar';
+// import {useDolar }    from '../Service/APIdolar';
+import { getDolarAmbito } from '../Service/APIpagos';
 import CardAsset from './CardAsset'; 
 import ProductGrid from './ProductGrid';
 import  {Context} from '../context/notification-context'
@@ -347,15 +348,17 @@ export function CardGridInfoProducto({handleClick,index}){
   const [isLoading, setIsLoading] = useState(false);
   const [tipoCuotas,    setTipoCuotas] = useState("");
   const [orderData, setOrderData] = useState({amount: 0,description: ''});
-  const valorDolar = useDolar();
-  const [dolarValue, setDolarValue] = useState(null);
+  const valorDolar = getDolarAmbito();
+  
+
+  const [dolarValue, setDolarValue] = useState(1000);
   const [calculatedTipoCuotas, setCalculatedTipoCuotas] = useState("");
   let facturaInfo = usuario.facturas[index];
 
   useEffect(() => {const fetchData = async () => {try {const value = await valorDolar;
     if(value){setDolarValue(parseInt(await value));}
-    else{console.log('error en api, usando valor dolar auxiliar');
-        setDolarValue(500)}} catch (error) {
+    else{console.log('error en api, usando valor dolar auxiliar');}
+  } catch (error) {
         console.error(error);}};
         fetchData();}, [valorDolar]);
 

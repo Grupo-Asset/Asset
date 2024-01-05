@@ -17,7 +17,7 @@ const PDFViewer = ({ pdfBase64 }) => {
 };
 
 
-const FacturaPDFComponent = ({ id, doctype }) => {
+const FacturaPDFComponent = ({ id, docType }) => {
   const [pdf, setPdf] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -25,7 +25,7 @@ const FacturaPDFComponent = ({ id, doctype }) => {
     const fetchPdf = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/v1/getFacturaPDF?id=${id}&doctype=${doctype}`,
+          `http://localhost:8080/payments/invoice/${id}`,
           {
             headers: {
               'Cache-Control': 'no-cache'
