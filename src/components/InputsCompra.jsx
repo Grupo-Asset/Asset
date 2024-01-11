@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useContext } from 'react';
+import React, { useState, useRef, useEffect, useContext, useMemo } from 'react';
 
 import InputCSS from '../css/Inputs.module.css';
 import useProducto from '../Service/APIproducto';
@@ -54,7 +54,7 @@ export default function RadioInputs({seleccion}) {
   
     // const valorDolar = useDolar();
     // const [dolarValue, setDolarValue] = useState(null);
-    const valorDolar = getDolarAmbito();
+    const valorDolar = useMemo( () => getDolarAmbito(),[])
     useEffect(() => {
       const fetchData = async () => {
         try {
@@ -350,6 +350,7 @@ function checkPriceByName(name) {
 
 function randomNum(){return 123}
 const randomNumber = () => {return 666}
+
 
 
 
