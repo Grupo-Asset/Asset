@@ -6,7 +6,11 @@ const APIComponent = ({ id, setPdf, docType }) => {
       try {
         console.log(id, docType);
         const response = await fetch(
+<<<<<<< HEAD
           `http://localhost:8080/payments/${docType}/${id}`
+=======
+          `https://restapinode-production-8fd5.up.railway.app/v1/getFacturaPDF?id=${id}&docType=${docType}`
+>>>>>>> main
         );
         if (!response.ok) {
           throw new Error(

@@ -2,7 +2,11 @@ import axios from 'axios';
 
 export async function suscrbirUsuario(props) {
 try {
+<<<<<<< HEAD
     const response = await axios.post('http://localhost:8080/funnel', props);
+=======
+    const response = await axios.post('https://restapinode-production-8fd5.up.railway.app/funnelSub', props);
+>>>>>>> main
 
     
     if (response.status === 200) {

@@ -12,6 +12,7 @@ import { faLock, faKey, faIdCard, faCalendar, faPlus, faShapes,faHouseLaptop, fa
 // import {useDolar }    from '../Service/APIdolar';
 import { getDolarAmbito } from '../Service/APIpagos';
 import CardAsset from './CardAsset'; 
+import Productos from './Productos';
 import ProductGrid from './ProductGrid';
 import  {Context} from '../context/notification-context'
 import {suscrbirUsuario} from '../Service/APIfunnel'
@@ -513,7 +514,7 @@ export function CardGridInfoProducto({handleClick,index}){
 const preference = () => {
   sessionStorage.setItem("compra", JSON.stringify(orderData));
 
-  fetch("http://localhost:8080/payment", {
+  fetch("https://restapinode-production-8fd5.up.railway.app/payment", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -542,7 +543,7 @@ const preference = () => {
         <div className={PerfilCSS.pagar}>
           <div key={usuario.facturas[index]}>
             <div className={PerfilCSS.divPago}>
-              <h1 className={PerfilCSS.h1Pago}>Información de la factura</h1>
+              <h2 className={PerfilCSS.h1Pago}>Información de la factura</h2>
               <div className={PerfilCSS.tableBotonPago}>
                 <table className={PerfilCSS.tablePago}>
                   <thead>
@@ -1009,9 +1010,9 @@ export function CardGrid20({ handleClick }) {
       id: 31,
       icon: "img/LogoBlanco.png",
       title:  <div>
-              <h1>  <span>Re</span>lajarse </h1>
-              <h1>  <span>Re</span>juvenecer </h1>
-              <h1>  <span>Re</span>conectarse. </h1>
+              <h2>  <span>Re</span>lajarse </h2>
+              <h2>  <span>Re</span>juvenecer </h2>
+              <h2>  <span>Re</span>conectarse. </h2>
               </div>,
       subtitle: 'Honestidad, Respeto, Sostenibilidad, Privacidad y Cumplimiento.',
       description: 'En Asset, somos afortunados de estar rodeados de gente que se esfuerza para simplificar la vida de las personas, creando productos y servicios simples e inteligentes que aporten experiencias únicas.',
@@ -1200,5 +1201,41 @@ export function CardGrid26({ handleClick }) {
     </div>
   );
 }
+
+
+// Productos
+
+export function CardGrid27({ handleClick }) {
+
+// Fuera del componente Productos
+const cardData = [
+  {
+    id: 32,
+    logo: "img/LogoBlanco.png",
+    icon: <FontAwesomeIcon icon={faPlus}/>,
+    title: 'Invertí con nosotros',
+    subtitle: 'test',
+    description: 'test',
+    imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687716368/MicrosoftTeams-image_1_asfpbu.png',
+    link: "/sobreasset",
+    buttons: [
+      { button: 'Registrate' ,onClick: btnCheckUserClick}
+    ],
+  },
+  // Agrega más objetos cardData según sea necesario
+];
+
+// Dentro del componente padre (donde renderizas Productos)
+return (
+  <div className={PerfilCSS.cardGridInicio} onClick={handleClick}>
+    {cardData.map((card) => (
+      <Productos key={card.id} card={card} /> // Pasa cada objeto card como prop al componente Productos
+    ))}
+  </div>
+);
+}
+
+
+
 
 export default CardGrid;
