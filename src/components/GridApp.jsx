@@ -9,8 +9,7 @@ import AddressCard from './CountryCard';
 import LanguageCard from './LenguageCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faKey, faIdCard, faCalendar, faPlus, faShapes,faHouseLaptop, faCalendarCheck, faMoneyCheckDollar, faFileInvoiceDollar, faFileLines, faGears, faFolderOpen, faHouseChimneyUser, faVenusMars, faBox, faLocationDot, faUser, faLanguage, faMobile, faAt, faCirclePlus } from '@fortawesome/free-solid-svg-icons';
-// import {useDolar }    from '../Service/APIdolar';
-import { getDolarAmbito } from '../Service/APIpagos';
+import {useDolar }    from '../Service/APIdolar';
 import CardAsset from './CardAsset'; 
 import Productos from './Productos';
 import ProductGrid from './ProductGrid';
@@ -24,7 +23,6 @@ import { SpinnerCircular } from 'spinners-react';
 import Checkout from "./Checkout";
 import GridCSS from "../css/Grid.module.css"
 import { Background } from '@cloudinary/url-gen/qualifiers';
-import {updateUser} from '../Service/APIusuario'
 
 
 import PDFViewer from '../components/PDFViewer';
@@ -123,8 +121,7 @@ export function CardGrid2({ handleClick }) {
   };
   const handleTelefonoClick = () => { 
     usuario.mobile = mobile;
-    // editar(usuario);
-    updateUser(usuario);
+    editar(usuario);
   };
 
   
@@ -339,76 +336,6 @@ export function CardGrid5({ handleClick, transfer, product}) {
     );
   }
 
-  export function CardGridActivos({ handleClick, transfer, product}) {
-    const onSectionClick  = transfer;
-    const usuarioJson = sessionStorage.getItem('user');
-    const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
-  
-    const changePage = (i) => {onSectionClick('Producto'); product(i)};
-  
-  
-  
-  
-      const cardData = [
-        // {
-        //   id: 14,
-        //   title: 'Productos enlazados',
-        //   description: usuario.productos,
-        //   imageUrl: 'https://via.placeholder.com/150',
-        // },
-        {
-          id: '',
-          title: 'Invertir ahora',
-          className: 'cardInvertir',
-          imageUrl: 'https://via.placeholder.com/150',
-          icon: <FontAwesomeIcon icon={faCirclePlus} />,
-          link: "/shop",
-        },
-        {
-          id: '',
-          title: 'Vender ahora',
-          className: 'cardVender',
-          imageUrl: 'https://via.placeholder.com/150',
-          icon: <FontAwesomeIcon icon={faCirclePlus} />,
-          link: "/shop",
-        },
-        {
-          id: 'Mercado',
-          title: 'Mercado',
-          className: 'cardMercado',
-          // imageUrl: 'https://via.placeholder.com/150',
-          icon: <FontAwesomeIcon icon={faCirclePlus} />,
-          link: "/shop",
-        },
-
-      ];
-
-      if (usuario && usuario.productos && usuario.productos.length > 0) {
-        const productCard = usuario.productos.map((producto, index) => (
-          {
-          id: index + 1,
-          title: producto,
-          // description: producto,
-          onClick: () => changePage(index),
-          imageUrl: 'https://via.placeholder.com/150',
-          icon: <FontAwesomeIcon icon={faBox} />
-        }),
-        );
-        cardData.unshift(...productCard)
-        
-      }
-  
-  
-      return (
-        <div className={PerfilCSS.cardGrid} onClick={handleClick}>
-      
-          {cardData.map((card) => (
-            <Card className={PerfilCSS.card} key={card.id} card={card} />
-          ))}
-        </div>
-      );
-    }
-
 export function CardGridInfoProducto({handleClick,index}){
   const usuarioJson = sessionStorage.getItem('user');
   const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
@@ -419,17 +346,15 @@ export function CardGridInfoProducto({handleClick,index}){
   const [isLoading, setIsLoading] = useState(false);
   const [tipoCuotas,    setTipoCuotas] = useState("");
   const [orderData, setOrderData] = useState({amount: 0,description: ''});
-  const valorDolar = getDolarAmbito();
-  
-
-  const [dolarValue, setDolarValue] = useState(1000);
+  const valorDolar = useDolar();
+  const [dolarValue, setDolarValue] = useState(null);
   const [calculatedTipoCuotas, setCalculatedTipoCuotas] = useState("");
   let facturaInfo = usuario.facturas[index];
 
   useEffect(() => {const fetchData = async () => {try {const value = await valorDolar;
     if(value){setDolarValue(parseInt(await value));}
-    else{console.log('error en api, usando valor dolar auxiliar');}
-  } catch (error) {
+    else{console.log('error en api, usando valor dolar auxiliar');
+        setDolarValue(500)}} catch (error) {
         console.error(error);}};
         fetchData();}, [valorDolar]);
 
@@ -796,13 +721,12 @@ export function CardGrid11({ handleClick }) {
       logo: "img/LogoBlanco.png",
       icon: "",
       title: 'Sobre Asset',
-
       description: 'Descripción de la tarjeta 1',
-      imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687714295/MicrosoftTeams-image_biu2dz.png',
+      imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto,q_auto:low/v1687714295/MicrosoftTeams-image_biu2dz.png',
       link: "/sobreasset",
     },
-
   ];
+
   return (
     <div className={PerfilCSS.cardGridInicio} onClick={handleClick}>
       {cardData.map((card) => (
@@ -812,6 +736,7 @@ export function CardGrid11({ handleClick }) {
   );
 }
 
+
 export function CardGrid12({ handleClick }) {
   const cardData = [
     {
@@ -820,19 +745,19 @@ export function CardGrid12({ handleClick }) {
       icon: "",
       title: 'Soporte',
       description: 'Descripción de la tarjeta 1',
-      imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687798522/grupo-jovenes-empresarios-que-trabajan-oficina_izwjdf.jpg',
-      
+      imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto,q_auto:low/v1687798522/grupo-jovenes-empresarios-que-trabajan-oficina_izwjdf.jpg',
     },
-    
   ];
+
   return (
     <div className={PerfilCSS.cardGridInicio} onClick={handleClick}>
       {cardData.map((card) => (
         <CardInicio className={PerfilCSS.cardInicio} key={card.id} card={card} />
-        ))}
+      ))}
     </div>
   );
-} 
+}
+
 
 
 // Sobre Asset cards
