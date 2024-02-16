@@ -50,6 +50,10 @@ function Perfil(props) {
     setIsLeftMoved(true);
   };
 
+  const handleSection9Click = () => {
+    onSectionClick('Mis Activos');
+    setIsLeftMoved(true);
+  };
   
   const handleLogout = () => {  
     sessionStorage.clear();
@@ -67,11 +71,11 @@ function Perfil(props) {
       </div>
       </div>
       <ul className={PerfilCSS.lista}>
-        <li className={PerfilCSS.listaElemento}>
+        {/* <li className={PerfilCSS.listaElemento}>
           <button className={PerfilCSS.btn} onClick={handleSection1Click}>
             Inicio de sesion
           </button>
-        </li>
+        </li> */}
         <li className={PerfilCSS.listaElemento}>
           <button className={PerfilCSS.btn} onClick={handleSection2Click}>
             Informacion personal
@@ -88,6 +92,11 @@ function Perfil(props) {
           </button>
         </li> */}
         <li className={PerfilCSS.listaElemento}>
+          <button className={PerfilCSS.btn} onClick={handleSection9Click}>
+            Mis Activos
+          </button>
+        </li>
+        {/* <li className={PerfilCSS.listaElemento}>
           <button className={PerfilCSS.btn} onClick={handleSection5Click}>
             Mis Productos
           </button>
@@ -101,7 +110,7 @@ function Perfil(props) {
           <button className={PerfilCSS.btn} onClick={handleSection7Click}>
             Mis Reservas
           </button>
-        </li>
+        </li> */}
         <li className={PerfilCSS.listaElemento}>
           <button className={PerfilCSS.btn} onClick={handleLogout}>
             Cerrar Sesión
