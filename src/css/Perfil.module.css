@@ -17,7 +17,7 @@
     display: grid;
     grid-template-columns: 4fr 1fr;
     background-color: white;
-    box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.18);
     padding: 20px;
     border-radius: 10px;
     text-decoration: none;
@@ -1273,9 +1273,24 @@
 
 
 
-#Mercado{
+#mercado{
   background-color: red;
   grid-column: 1 / span 2;
   grid-row: 2 / span 1;
   height: 400px;
 }
+
+#mercado h3{
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  top: 0;
+  /* position: relative; */
+  /* left: 0; */
+  /* right: 0; */
+  margin: auto;
+  margin-top: 0;
+  margin-left: 0;
+}
+
+

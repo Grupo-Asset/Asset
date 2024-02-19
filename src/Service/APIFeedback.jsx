@@ -9,7 +9,7 @@ export default function useFeedback(){
 
             try {
 
-                const response = await fetch(`http://localhost:8080/feedback`);
+                const response = await fetch(`https://restapinode-production-8fd5.up.railway.app/feedback`);
                 
                 if (!response.ok){
                     

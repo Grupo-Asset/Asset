@@ -9,11 +9,10 @@ import {useCallback } from 'react';
 
 
 export default function useContactos(){
-  
   const contactos = useCallback(async (email, password) => {
     try {
-      const response = await fetch(`http://localhost:8080/v2/login?email=${email}&password=${password}`, {
-        headers: { //192.168.1.89:8080
+      const response = await fetch(`http://localhost:8080/v1/login?email=${email}&password=${password}`, {
+        headers: {
           'accept': 'application/json',
           'Acces-Control-Allow-Origin': '*'
         }
@@ -26,7 +25,6 @@ export default function useContactos(){
 
       const data = await response.json();
       console.log("se ejecuto holded");
-      
       sessionStorage.setItem("user", JSON.stringify(data));
       window.location.reload();
     } catch (error) {
@@ -39,19 +37,3 @@ export default function useContactos(){
 
   return contactos;
 }
-
-
-// const options = {
-//   method: 'POST',
-//   headers: {
-//     accept: 'application/json',
-//     'content-type': 'application/json',
-//     key: '343654e3d1014f792344a19ee8f40503'
-//   },
-//   body: JSON.stringify({name: 'test', email: 'testReg@gmail.com', mobile: '1234', note: 'password'})
-// };
-
-// fetch('https://api.holded.com/api/invoicing/v1/contacts', options)
-//   .then(response => response.json())
-//   .then(response => console.log(response))
-//   .catch(err => console.error(err));
