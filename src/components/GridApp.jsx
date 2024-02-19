@@ -336,6 +336,73 @@ export function CardGrid5({ handleClick, transfer, product}) {
     );
   }
 
+
+  export function CardGridActivos({ handleClick, transfer, product}) {
+    const onSectionClick  = transfer;
+    const usuarioJson = sessionStorage.getItem('user');
+    const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
+  
+    const changePage = (i) => {onSectionClick('Producto'); product(i)};
+  
+  
+  
+  
+      const cardData = [
+        {
+          id: 'invertir',
+          title: 'Invertir ahora',
+          className: 'invertir',
+          // imageUrl: 'https://via.placeholder.com/150',
+          icon: <FontAwesomeIcon icon={faCirclePlus} />,
+          link: "/shop",
+        },
+        {
+          id: 'vender',
+          title: 'Vender ahora',
+          className: 'vender',
+          // imageUrl: 'https://via.placeholder.com/150',
+          icon: <FontAwesomeIcon icon={faCirclePlus} />,
+          link: "/shop",
+        },
+        {
+          id: 'mercado',
+          title: 'Mercado',
+          className: 'mercado',
+          imageUrl: 'https://via.placeholder.com/150',
+          // icon: <FontAwesomeIcon icon={faCirclePlus} />,
+          link: "/shop",
+        },
+  
+      ];
+  
+      if (usuario && usuario.productos && usuario.productos.length > 0) {
+        const productCard = usuario.productos.map((producto, index) => (
+          {
+          id: index + 1,
+          title: producto,
+          // description: producto,
+          onClick: () => changePage(index),
+          imageUrl: 'https://via.placeholder.com/150',
+          icon: <FontAwesomeIcon icon={faBox} />
+        }),
+        );
+        cardData.unshift(...productCard)
+        
+      }
+  
+  
+      return (
+        <div className={PerfilCSS.cardGrid} onClick={handleClick}>
+      
+          {cardData.map((card) => (
+            <Card className={PerfilCSS.card} key={card.id} card={card} />
+          ))}
+        </div>
+      );
+    }
+  
+
+
 export function CardGridInfoProducto({handleClick,index}){
   const usuarioJson = sessionStorage.getItem('user');
   const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;

@@ -40,9 +40,9 @@ function Card({ card, cardData }) {
 
     return (
         <>
-      <Link to={card.link} id={`${PerfilCSS[`${card.id}`]}`} className={PerfilCSS.card}>
+      <Link to={card.link} id={`${PerfilCSS[`${card.id}`]}`} className={`${PerfilCSS.card} ${PerfilCSS[`${card.id}`]}`}>
         {/* <img src={card.imageUrl} alt="Imagen de la tarjeta" /> */}
-        <div className="card-body" onClick={card.onClick? card.onClick : handleOpenModal}>
+        <div className={`${PerfilCSS.cardBody} ${PerfilCSS[`${card.id}`]}`} onClick={card.onClick? card.onClick : handleOpenModal}>
           <h3>{card.title}</h3>
           <p>{card.description}</p>
         </div>
