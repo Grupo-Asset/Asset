@@ -1274,7 +1274,7 @@
 
 
 #Mercado{
-  background-color: red;
+  /* background-color: red; */
   grid-column: 1 / span 2;
   grid-row: 2 / span 1;
   height: 400px;

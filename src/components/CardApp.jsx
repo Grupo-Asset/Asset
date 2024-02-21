@@ -5,10 +5,15 @@ import React, { useState } from 'react';
 import PerfilCSS from '../css/Perfil.module.css';
 import { Link } from 'react-router-dom';
 import ModalCardInicio from './ModalPerfil';
+import LineChart from './Graficos';
 
 
 function Card({ card, cardData }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+
+  
+
 
   const handleOpenModal = () => {
     if (card.id !== 1   &&
@@ -48,6 +53,7 @@ function Card({ card, cardData }) {
         </div>
         <div className={PerfilCSS.icon}>
         <h2 id={card.id} className={`${PerfilCSS[`${card.className}`]}`}>{card.icon}</h2>
+        {card.graphic}
         </div>
       </Link>
         <ModalCardInicio card={card} isOpen={isModalOpen} onClose={handleCloseModal} />

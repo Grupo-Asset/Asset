@@ -24,6 +24,7 @@ import Checkout from "./Checkout";
 import GridCSS from "../css/Grid.module.css"
 import { Background } from '@cloudinary/url-gen/qualifiers';
 import {updateUser} from '../Service/APIusuario'
+import LineChart from './Graficos';
 
 
 import PDFViewer from '../components/PDFViewer';
@@ -344,9 +345,12 @@ export function CardGrid5({ handleClick, transfer, product}) {
     const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
   
     const changePage = (i) => {onSectionClick('Producto'); product(i)};
+
   
-  
-  
+    const data = {
+      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+      values: [65, 59, 80, 81, 56, 55]
+    };
   
       const cardData = [
         // {
@@ -360,7 +364,7 @@ export function CardGrid5({ handleClick, transfer, product}) {
           title: 'Invertir ahora',
           className: 'cardInvertir',
           imageUrl: 'https://via.placeholder.com/150',
-          icon: <FontAwesomeIcon icon={faCirclePlus} />,
+          // icon: <FontAwesomeIcon icon={faCirclePlus} />,
           link: "/shop",
         },
         {
@@ -368,7 +372,7 @@ export function CardGrid5({ handleClick, transfer, product}) {
           title: 'Vender ahora',
           className: 'cardVender',
           imageUrl: 'https://via.placeholder.com/150',
-          icon: <FontAwesomeIcon icon={faCirclePlus} />,
+          // icon: <FontAwesomeIcon icon={faCirclePlus} />,
           link: "/shop",
         },
         {
@@ -376,8 +380,10 @@ export function CardGrid5({ handleClick, transfer, product}) {
           title: 'Mercado',
           className: 'cardMercado',
           // imageUrl: 'https://via.placeholder.com/150',
-          icon: <FontAwesomeIcon icon={faCirclePlus} />,
+          // icon: <FontAwesomeIcon icon={faCirclePlus} />,
           link: "/shop",
+          graphic: <LineChart chartData={data} />,
+
         },
 
       ];
