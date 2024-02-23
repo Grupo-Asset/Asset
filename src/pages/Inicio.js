@@ -13,7 +13,7 @@ function Inicio() {
   const usuarioJson = sessionStorage.getItem('user');
   const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
 
- 
+
   const suscribir = () => {
     activar(false)
     setTimeout(() => {
