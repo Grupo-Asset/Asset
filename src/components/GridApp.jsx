@@ -377,14 +377,13 @@ export function CardGrid5({ handleClick, transfer, product}) {
           link: "/shop",
         },
         {
-          id: 'Mercado',
+          id: 'mercado',
           title: 'Mercado',
           className: 'cardMercado',
           // imageUrl: 'https://via.placeholder.com/150',
           // icon: <FontAwesomeIcon icon={faCirclePlus} />,
           link: "/shop",
-          graphic: <LineChart chartData={data} />,
-
+          graphic: <div className={PerfilCSS.grafico} > <LineChart chartData={data} /></div>,
         },
 
       ];

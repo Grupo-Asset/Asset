@@ -11,7 +11,7 @@ const Landing = () => {
   return (
     <div className="App">
       <Background/>
-      <Inicio/>
+      {/* <Inicio/> */}
       <SobreAsset/>
       <Productos/>
       <Quarters/>

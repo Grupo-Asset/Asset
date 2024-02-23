@@ -122,7 +122,7 @@ function Productos() {
             <p className={InicioCSS.p}>Simulador de inversiones</p>
           </div>
         </div>
-        <BackgroundQuarters />
+        {/* <BackgroundQuarters /> */}
       </a>
 
       <div className={InicioCSS.gridContainer}>
