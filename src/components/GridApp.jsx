@@ -1213,7 +1213,33 @@ export function CardGrid26({ handleClick }) {
 // Productos
 
 export function CardGrid27({ handleClick }) {
+  const usuarioJson = sessionStorage.getItem('user');
+  const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
+ 
+  const {activar, playAnimation, notificar} = useContext(Context);
 
+
+
+
+const btnCheckUserClick = () => {
+  // console.log('click');
+  if(!usuario){
+    activar(true);
+    notificar(<div><span>Para poder acceder primero debes registrate</span></div>)
+    setTimeout(() => {
+      activar(false);
+    }, 3000);
+    
+  }
+  else{
+    suscrbirUsuario({
+      usuario: usuario,
+      funnelID: "648b8d0d0f58893d050bd744",
+      stageID:"648b8d0d0f58893d050bd73f"});
+
+    window.location.replace('https://www.eventbrite.com/e/asset-event-tickets-662052696437');
+  }
+} 
   // Fuera del componente Productos
   const cardData = [
     {
