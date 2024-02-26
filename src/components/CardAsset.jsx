@@ -7,31 +7,24 @@ const CardAsset = ({ card, cardData }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
   const handleButtonClick = () => {
-    // if (window.location.pathname === '/eventos') {
-    //   // Realiza alguna acción específica para el botón en /eventos
-    //   // Por ejemplo, redirige a la página de registro
-    //   window.location.href = '/registro';
-    // } else 
+
     if (window.location.pathname === '/sobreasset') {
       // Realiza otra acción para el botón en /sobreasset
       // Por ejemplo, cambia el estado de isFlipped
-      setIsFlipped(!isFlipped);
+      // setIsFlipped(!isFlipped);
     }
   };
 
   return (
     <div className={CACSS.card}>
-
       <div className={CACSS.rightSection}>
-        <div
-          className={`${CACSS.imageContainer} ${isFlipped ? CACSS.flip : ''}`}
-        >
+        <div className={`${CACSS.imageContainer} ${isFlipped ? CACSS.flip : ''}`}>
           <div className={CACSS.front}>
             <img className={CACSS.img} src={card.imageUrl} alt="" />
           </div>
-          <div className={CACSS.back}>
+          {/* <div className={CACSS.back}>
             <span>{card.description}</span>
-          </div>
+          </div> */}
         </div>
       </div>
       
@@ -52,6 +45,7 @@ const CardAsset = ({ card, cardData }) => {
         <div className={`${CACSS.title} ${isFlipped ? CACSS.flipTitle : ''}`}>
           <h2 className={CACSS.h1}>{card.title}</h2>
           <h3 className={CACSS.h2}>{card.subtitle}</h3>
+          <p>{card.description}</p>
         </div>
       </div>
     </div>

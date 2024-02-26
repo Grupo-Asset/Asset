@@ -377,14 +377,13 @@ export function CardGrid5({ handleClick, transfer, product}) {
           link: "/shop",
         },
         {
-          id: 'Mercado',
+          id: 'mercado',
           title: 'Mercado',
           className: 'cardMercado',
           // imageUrl: 'https://via.placeholder.com/150',
           // icon: <FontAwesomeIcon icon={faCirclePlus} />,
           link: "/shop",
-          graphic: <LineChart chartData={data} />,
-
+          graphic: <div className={PerfilCSS.grafico} > <LineChart chartData={data} /></div>,
         },
 
       ];
@@ -1250,10 +1249,10 @@ const btnCheckUserClick = () => {
       subtitle: 'test',
       description: 'test',
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687716368/MicrosoftTeams-image_1_asfpbu.png',
-      link: "/sobreasset",
-      buttons: [
-        { button: 'Registrate' ,onClick: btnCheckUserClick}
-      ],
+      link: "",
+      // buttons: [
+      //   { button: 'Registrate' ,onClick: btnCheckUserClick}
+      // ],
     },
     // Agrega más objetos cardData según sea necesario
   ];
@@ -1269,6 +1268,32 @@ const btnCheckUserClick = () => {
   }
   
   
+  
+
+
+  export function CardGrid28({ handleClick }) {
+    const cardData = [
+      {
+        id: 31,
+        logo: "img/LogoBlanco.png",
+        icon: <FontAwesomeIcon icon={faPlus}/>,
+        title: 'INVERTIIIII',
+        subtitle: 'TESSSTTTTT',
+        description: 'Test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test test',
+        imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1683125222/image9_idbdi3.png',
+        link: "/producto",
+      },
+      // Agrega más objetos cardData según sea necesario
+    ];
+  
+    return (
+      <div className={PerfilCSS.cardGridInicio} onClick={handleClick}>
+        {cardData.map((card) => (
+          <Productos key={card.id} card={card} /> // Pasa cada objeto card como prop al componente CardAsset
+        ))}
+      </div>
+    );
+  }
   
 
 export default CardGrid;

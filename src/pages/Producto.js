@@ -8,15 +8,15 @@ import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 
-function ValueLabelComponent(props: SliderValueLabelProps) {
-  const { children, value } = props;
+// function ValueLabelComponent(props: SliderValueLabelProps) {
+//   const { children, value } = props;
 
-  return (
-    <Tooltip enterTouchDelay={0} placement="top" title={value}>
-      {children}
-    </Tooltip>
-  );
-}
+//   return (
+//     <Tooltip enterTouchDelay={0} placement="top" title={value}>
+//       {children}
+//     </Tooltip>
+//   );
+// } lo comenté porque SliderValueLabelProps tiene un problema y no me gusta que el archivo aparezca en rojo (pero si lo descomentas no pasa nada sigue funcoinando todo normal, solo aparece en rojo como si algo estuviese mal, igual sí está mal pero usted me entiende, no es completamente necesario arreglarlo para que tdo fucnione porque no rompe nada, salu2 buen cñor)
 
 const iOSBoxShadow =
   '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
@@ -114,7 +114,7 @@ function Productos() {
   ];
 
   return (
-    <div className={InicioCSS.inicio}>
+    <div className={InicioCSS.productInicio}>
       <a href="/quarters" className={InicioCSS.background}>
         <div className={InicioCSS.textEvents}>
           <div className={InicioCSS.logoP}>
@@ -132,9 +132,13 @@ function Productos() {
         </div>
         <div className={InicioCSS.empresas}>
           <h2 className={InicioCSS.subtitulo}>Con la confianza de estas reconocidas empresas</h2>
-          <div>
-            <img src="ruta/a/la/imagen.jpg" alt="CEDU" />
-            <img src="ruta/a/la/imagen.jpg" alt="MELI" />
+          <div className={InicioCSS.confianza}>
+            <a href='https://cedu.com.ar/' target="_blank">
+            <img className={InicioCSS.imgCEDU} src="https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1708712742/Miembros-CEDU_gericn.png" alt="CEDU" />
+            </a>
+            <a href='https://mercadolibre.com.ar/' target="_blank">
+            <img className={InicioCSS.imgMELI} src="https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1708713926/mercado-libre-logo_xgahlf.png" alt="MELI" />
+            </a>
           </div>
         </div>
         <div className={InicioCSS.simulador}>

@@ -47,7 +47,7 @@ const LineChart = ({ chartData }) => {
 
   return (
     <div>
-      <canvas ref={chartRef} width="400" height="200" />
+      <canvas ref={chartRef} width="400" height="200" justify-content="center" />
     </div>
   );
 };

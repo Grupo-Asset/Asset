@@ -1274,23 +1274,31 @@ position: absolute;
 
 
 #mercado{
-background-color: red;
-grid-column: 1 / span 2;
-grid-row: 2 / span 1;
-height: 400px;
+  /* background-color: red; */
+  grid-column: 1 / span 2;
+  grid-row: 2 / span 1;
+  /* height: 348px; */
+  display: flex;
+  flex-direction: column;
 }
 
-#mercado h3{
-display: flex;
-/* justify-content: center; */
-/* align-items: center; */
-top: 0;
-/* position: relative; */
-/* left: 0; */
-/* right: 0; */
-margin: auto;
-margin-top: 0;
-margin-left: 0;
+#mercado div{
+  display: flex;
+  /* justify-content: center; */
+  margin-bottom: auto;
+  width: 100%;
 }
 
+#mercado div h3{
+  display: flex;
+  justify-content: left;
+}
 
+.grafico{
+  margin: auto;
+  padding: 20px;
+}
+
+.grafico div canvas{
+  justify-content: center;
+}
