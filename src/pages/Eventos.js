@@ -1,6 +1,6 @@
 import React from 'react';
 import InicioCSS from '../css/Inicio.module.css';
-import Cards from '../components/Cards';
+// import Cards from '../components/Cards';
 import {CardGrid26} from '../components/GridApp';
 import { BackgroundQuarters } from  '../components/Background';
 

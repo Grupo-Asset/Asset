@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import CACSS from '../css/CardAsset.module.css';
 
-const Productos = ( card, cardData ) => {
+const Productos = ({ card, cardData }) => {
+  // Verificar que card no sea undefined antes de acceder a sus propiedades
+  console.log(card, "card");
+  
+  if (!card) {
+    return <div>No se han proporcionado datos de la tarjeta</div>;
+  }
+
 
   return (
     <div className={CACSS.productCard}>
-
       <div className={CACSS.productRightSection}>
-        <div
-          className={`${CACSS.productImageContainer}`}
-        >
+        <div className={`${CACSS.productImageContainer}`}>
           <div className={CACSS.productFront}>
             <img className={CACSS.productImg} src={card.imageUrl} alt="" />
           </div>
@@ -20,17 +24,16 @@ const Productos = ( card, cardData ) => {
           </div>
         </div>
       </div>
-      
       <div className={CACSS.productLeftSection}>
         <div className={CACSS.productIcon}>
           <button className={CACSS.productBtn}>
             <FontAwesomeIcon icon={faPlus} />
             <p className={CACSS.productRegisterText}>{card.text}</p>
             {card.buttons && card.buttons.map((input, index) => (
-            <div  key={index}>
-                  <div>
-                      <button className={CACSS.productBtn} onClick={input.onClick}> {input.button} </button>
-                  </div>
+              <div  key={index}>
+                <div>
+                  <button className={CACSS.productBtn} onClick={input.onClick}> {input.button} </button>
+                </div>
               </div>
             ))}
           </button>

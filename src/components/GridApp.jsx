@@ -98,9 +98,6 @@ export function CardGrid({ handleClick }) {
 }
 
 
-
-
-
 export function CardGrid2({ handleClick }) {
   const [genero, setGenero] = useState(""); // Estado para almacenar el valor seleccionado
   const [mobile, setMobile] = useState(""); // Estado para almacenar el valor seleccionado
@@ -338,9 +335,9 @@ export function CardGrid5({ handleClick, transfer, product}) {
         ))}
       </div>
     );
-  }
+}
 
-  export function CardGridActivos({ handleClick, transfer, product}) {
+export function CardGridActivos({ handleClick, transfer, product}) {
     const onSectionClick  = transfer;
     const usuarioJson = sessionStorage.getItem('user');
     const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
@@ -412,7 +409,7 @@ export function CardGrid5({ handleClick, transfer, product}) {
           ))}
         </div>
       );
-    }
+}
 
 export function CardGridInfoProducto({handleClick,index}){
   const usuarioJson = sessionStorage.getItem('user');
@@ -647,7 +644,7 @@ const preference = () => {
 
 }
 
-  export function CardGrid6({ handleClick }) {
+export function CardGrid6({ handleClick }) {
     const usuarioJson = sessionStorage.getItem('user');
     const usuario = usuarioJson ? JSON.parse(usuarioJson) : null;
   // console.log(usuario)
@@ -840,7 +837,7 @@ export function CardGrid12({ handleClick }) {
 } 
 
 
-// Sobre Asset cards
+//Sobre Asset cards
 
 export function CardGrid13({ handleClick }) {
   const cardData = [
@@ -914,7 +911,7 @@ export function CardGrid15({ handleClick }) {
   );
 }
 
-// Fin de Asset cards
+//Fin de Asset cards
 
 //Product Grid Cards
 
@@ -1207,8 +1204,6 @@ export function CardGrid26({ handleClick }) {
   );
 }
 
-
-
 // Productos
 
 export function CardGrid27({ handleClick }) {
@@ -1239,16 +1234,13 @@ export function CardGrid27({ handleClick }) {
       ))}
     </div>
   );
-  }
-  
-  
-  
+}
 
 
-  export function CardGrid28({ handleClick }) {
+export function CardGrid28({ handleClick }) {
     const cardData = [
       {
-        id: 31,
+        id: "test",
         logo: "img/LogoBlanco.png",
         icon: <FontAwesomeIcon icon={faPlus}/>,
         title: 'INVERTIIIII',
@@ -1259,15 +1251,13 @@ export function CardGrid27({ handleClick }) {
       },
       // Agrega más objetos cardData según sea necesario
     ];
-  
     return (
       <div className={PerfilCSS.cardGridInicio} onClick={handleClick}>
         {cardData.map((card) => (
-          <Productos key={card.id} card={card} /> // Pasa cada objeto card como prop al componente CardAsset
+          <Productos key={card.id} card={card} />
         ))}
       </div>
     );
-  }
-  
+}
 
 export default CardGrid;

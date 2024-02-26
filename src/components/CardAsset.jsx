@@ -6,6 +6,9 @@ import CACSS from '../css/CardAsset.module.css';
 const CardAsset = ({ card, cardData }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
+  console.log(card, "card1");
+
+
   const handleButtonClick = () => {
 
     if (window.location.pathname === '/sobreasset') {

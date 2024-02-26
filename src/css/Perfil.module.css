@@ -1284,7 +1284,7 @@ position: absolute;
 
 #mercado div{
   display: flex;
-  /* justify-content: center; */
+  justify-content: center; /* hola */
   margin-bottom: auto;
   width: 100%;
 }
@@ -1302,3 +1302,4 @@ position: absolute;
 .grafico div canvas{
   justify-content: center;
 }
+

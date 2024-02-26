@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import InicioCSS from '../css/Inicio.module.css';
-import Cards from '../components/Cards';
+// import Cards from '../components/Cards';
 import {CardGrid9, CardGrid10, CardGrid11, CardGrid12} from '../components/GridApp';
 import { BackgroundQuarters } from  '../components/Background';
 import { Link } from 'react-router-dom';
@@ -29,7 +29,6 @@ function Inicio() {
       usuario: usuario,
       funnelID: "641c5f375ba494fd3803b591",
       stageID:"641c5f375ba494fd3803b592"});
-    
   }
   const handleClick = () => { 
     if(!usuario){
