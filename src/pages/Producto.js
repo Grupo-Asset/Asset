@@ -150,8 +150,7 @@ function Productos() {
             open={openModal}
             onClose={handleCloseModal}
             aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description"
-          >
+            aria-describedby="modal-modal-description">
             <ModalContent />
           </Modal>
           </div>
