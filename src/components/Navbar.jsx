@@ -169,7 +169,7 @@ function Navbar() {
             </NavLink>
           </li>
           <li className={`${NavbarCSS.menuItem} ${isShopPage ? NavbarCSS.menuItem : ''}`}>
-            <NavLink onClick={hideLoginDropdown} to="/quarters">Quarters</NavLink>
+            <NavLink onClick={hideLoginDropdown} to="/">Emprendimientos</NavLink>
           </li>
           <li className={`${NavbarCSS.menuItem} ${isShopPage ? NavbarCSS.menuItem : ''}`}>
             <NavLink onClick={hideLoginDropdown} to="/eventos">Eventos</NavLink>

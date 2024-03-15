@@ -1,13 +1,16 @@
 import React from 'react';
-import '../css/BannerProductos.module.css'; // Estilos del banner
+import BannerCSS from '../css/BannerProductos.module.css';
 
-const Banner = ({ backgroundImage, title, subtitle }) => {
+const Banner = ({ imageUrl, title, subtitle, buttonAction }) => {
   return (
-    <div className="banner" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <div className="content">
-        <h1 className="title">{title}</h1>
-        <h2 className="subtitle">{subtitle}</h2>
-        <button className="button">Invertir</button>
+    <div className={BannerCSS.banner}>
+      <img src={imageUrl} alt="Banner" className={BannerCSS.bannerImage} />
+      <div className={BannerCSS.content}>
+        <h2 className={BannerCSS.title}>{title}</h2>
+        <h3 className={BannerCSS.subtitle}>{subtitle}</h3>
+        <a className={BannerCSS.button} href={buttonAction}>
+          Invertir
+        </a>
       </div>
     </div>
   );
