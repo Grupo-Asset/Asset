@@ -169,14 +169,14 @@ function Navbar() {
             </NavLink>
           </li>
           <li className={`${NavbarCSS.menuItem} ${isShopPage ? NavbarCSS.menuItem : ''}`}>
-            <NavLink onClick={hideLoginDropdown} to="/">Emprendimientos</NavLink>
+            <NavLink onClick={hideLoginDropdown} to="/">Productos</NavLink>
           </li>
           <li className={`${NavbarCSS.menuItem} ${isShopPage ? NavbarCSS.menuItem : ''}`}>
             <NavLink onClick={hideLoginDropdown} to="/eventos">Eventos</NavLink>
           </li>
-          <li className={`${NavbarCSS.menuItem} ${isShopPage ? NavbarCSS.menuItem : ''}`}>
+          {/* <li className={`${NavbarCSS.menuItem} ${isShopPage ? NavbarCSS.menuItem : ''}`}>
             <NavLink onClick={hideLoginDropdown} exact="true" to="/shop">Store</NavLink>
-          </li>
+          </li> */}
           <li className={`${NavbarCSS.menuItem} ${isShopPage ? NavbarCSS.menuItem : ''}`}>
             <button
               className={NavbarCSS.btn}

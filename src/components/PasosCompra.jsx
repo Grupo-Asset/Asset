@@ -1,6 +1,7 @@
 // Pasos.js
 import React from 'react';
-import Component from './ComponenteInputsTerreno';
+import Inputs from '../components/InputsCompra';
+
 
 const Paso1 = () => {
   return (
@@ -8,7 +9,7 @@ const Paso1 = () => {
       {/* Contenido del paso 1 */}
       <h3>Terreno</h3>
       <p>Contenido del paso 1</p>
-      {/* <Componente/> */}
+      {/* <Inputs/> */}
     </div>
   );
 };
