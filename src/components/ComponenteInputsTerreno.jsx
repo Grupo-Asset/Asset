@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect, useContext, useMemo } from 'react';
-
 import InputCSS from '../css/Inputs.module.css';
 import useProducto from '../Service/APIproducto';
 import useServicio from '../Service/APIservicio';
@@ -16,31 +15,8 @@ import Payment from "./Payment";
 import  {Context as NotificationContext} from '../context/notification-context'
 import { OpacityOutlined } from '@mui/icons-material';
 
-//credencial de prueba test user 1
 initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd");
-// credenciales de prueba:
-// ASSET (it@asset)
-// credencial  public key:  "TEST-026812a7-4811-43d1-8f09-8207c13823a5"
-// credencial  Acces Token: TEST-6453243717102029-050120-8e42db516068f5814f7146cefe6696b4-1362723906  
 
-// Produccion
-// public key: APP_USR-cea272c1-a889-4a00-8d37-6f86ba43adb1
-//Access Token: APP_USR-6453243717102029-050120-86625470ed742e0c3a8dfdfa709ade8a-1362723906
-// Credenciales de prueba:
-
-// Test user 1 vendedor TTEST53609
-// test_user_1617378711@testuser.com
-// credencial  public key:  "TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd"
-// credencial  Acces Token: TEST-5990004718573364-050309-6f5ddb7d13b533596d97451683dcf03e-1365118455
-
-// Produccion
-// Publick key: "APP_USR-d1d798ac-ada1-4e7e-8ab8-512fe38520a4"
-// Access token: APP_USR-5990004718573364-050309-e155277ff5747f15411c67de313903fd-1365118455
-
-// Client Secret: oPB0PWcUBp0cTl9WzzqxW4XJJOjBCiok
-
-
-//Test user 2  dor TTEST65297
 
 export default function RadioInputs({seleccion}) {
   
@@ -50,10 +26,6 @@ export default function RadioInputs({seleccion}) {
   const {activar, playAnimation, notificar} = useContext(NotificationContext);
   const refA = useRef(null);
 
-
-  
-    // const valorDolar = useDolar();
-    // const [dolarValue, setDolarValue] = useState(null);
     const valorDolar = useMemo( () => getDolarAmbito(),[])
     useEffect(() => {
       const fetchData = async () => {
@@ -81,27 +53,7 @@ export default function RadioInputs({seleccion}) {
     useEffect(() => {
       console.log('valor dolar ambito finaciero',dolarValue);
     }, [dolarValue]);
-  // const [preferenceId, setPreferenceId] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  // const [orderData, setOrderData] = useState(
-  //   { 
-  //   quantity: "1", 
-  //   price: "0", 
-  //   amount: 0, 
-  //   description: "Terreno",
-  //   cards: 0, 
-  //   storage:1, 
-  //   guarderia:0, 
-  //   sum:0,
-  //   cw:0, 
-  //   user: {}, 
-  //   sku:"",
-  //   storagePrice:0,
-  //   guarderiaPrice:0,
-  //   sumPrice:0,
-  //   cwPrice:0,
-  // });
-//FIN DE MERCADO PAGO
   
   const [input2Disabled, setInput2Disabled] = useState(true );
   const [input3Disabled, setInput3Disabled] = useState(true );
@@ -123,11 +75,8 @@ export default function RadioInputs({seleccion}) {
   const [servicios, setServicios] = useState([]);
   
   const urlParams = new URLSearchParams(window.location.search);
-  const status = Object.fromEntries(urlParams).status;
-  // console.log("params del link:",Object.fromEntries(urlParams))
-  
+  const status = Object.fromEntries(urlParams).status;  
 
-  
   const almacenamientoRef = useRef(null);
   const cardRef           = useRef(null);
   const guarderiaRef      = useRef(null);
@@ -143,7 +92,6 @@ export default function RadioInputs({seleccion}) {
     guarderia       : selectedGuarderia,
     sum             : selectedSUM,
     cw              : selectedCW,
-    // pago            : selectedPago
   }
 
 orderData.description=request.terreno;
@@ -166,16 +114,6 @@ useEffect(() => {
 }, [orderData,selectedTerreno,selectedCard,selectedAlmacenamiento,selectedGuarderia,selectedSUM, selectedCW]);
 
 
-//deberia hacer que productos tenga un useState y para que se ejecute cuando cambia la lista (reducir sto
-
-// useEffect(
-//   () => {
-//     if(!(selectedTerreno==='')){
-//     console.log('useEffect terreno','selectedTerreno:', selectedTerreno)
-//   cardRef.current.scrollIntoView({ behavior: 'smooth' });
-//   }
-// }, [selectedTerreno,input2Disabled]);
-
 useEffect(
   () => {
     
@@ -191,12 +129,6 @@ useEffect(
     }
 }, [selectedCard]);
 
-// useEffect(
-//   () => {
-//     if(!(selectedAlmacenamiento==='')){
-//     guarderiaRef.current.scrollIntoView({ behavior: 'smooth' });
-//     }
-//   }, [selectedAlmacenamiento]);
 
 useEffect(
   () => {
@@ -219,15 +151,10 @@ useEffect(
         }
       }, [selectedCW]);
 
-// useEffect(() => {pagoRef.current.scrollIntoView({ behavior: 'smooth' });}, [selectedSUM]);
 useEffect(()=>{
   seleccion(orderData);
-  // console.log('se deberia estar mandando')
 },[orderData, setOrderData,selectedTerreno, selectedCard, selectedAlmacenamiento, selectedGuarderia, selectedSUM, selectedCW]);
 
-
-// const productos = useProducto();
-// const servicios = useServicio();
 useEffect(() => {
   async function cargar(){
     if(!cargaron){
@@ -254,11 +181,7 @@ useEffect(() => {
 
   useEffect(() => {
     if(orderData.description){    
-      // console.log(refA.current)
-      // console.log(refA.current.offsetHeight)
       activar(true);
-      // notificar(<div style={{height: refA.current.offsetHeight}}></div>);}
-      // setIsLoading(true);
       notificar(
       
         <div className={InputCSS["col-md-12"] + " " + InputCSS["col-lg-4"]} style={{ width: '100%', paddingBottom: '5px'}}>
@@ -269,14 +192,6 @@ useEffect(() => {
           {showLoged ? (
             <div className={InputCSS["textContainer"]}>
             <span className={InputCSS["textNotification"]}>Debes iniciar sesión para comprar.</span>
-            {/* <button
-                className={InputCSS.test}
-                onClick={onClick}
-                id={InputCSS["checkout-btn-disabled"]}
-                disabled='true'
-              >
-                Checkout
-              </button> */}
 
             </div>
           ) : (
@@ -291,14 +206,6 @@ useEffect(() => {
                 <span className={InputCSS["price"]} id={InputCSS["cart-total"]}>{orderData.amount.toLocaleString('es-AR', { style: 'decimal', minimumFractionDigits: 2, maximumFractionDigits: 2 })}
 + IVA</span>
               </div>
-              {/* <button
-                className={InputCSS.test}
-                onClick={onClick}
-                id={InputCSS["checkout-btn"]}
-                disabled={disabled}
-                >
-                Comprar
-              </button> */}
             </div>
           )}
           
@@ -311,9 +218,6 @@ useEffect(() => {
                       activar(false)
                     }
 
-      // setTimeout(() => {
-      //   activar(false);
-      // }, 3000);
   }, [orderData.amount, refA, isLoading,orderData,selectedTerreno]); 
 
 
@@ -338,10 +242,8 @@ function checkStockByName(name) {
 }
 
 function checkPriceByName(name) {
-  // console.log(productos)
   const obj = productos.find(item => item.name === name);
   if (obj && obj.price > 0) {
-    // console.log(obj.price)
     return obj.price;
   } else {
     return 0;
@@ -355,26 +257,19 @@ const randomNumber = () => {return 666}
 
 
 const servicePrice = (name2find) => {
-  
-  // console.log(servicios);
-  // console.log(servicios.map(item => item.name));
+
 
   const serv = servicios.find(item => item.name.toLowerCase() === name2find.toLowerCase());
-  // console.log(servicios.find(item => item.name.toLowerCase() === name2find.toLowerCase()))
+
   
   if (serv && serv.price) {
     return serv.price;
   }else{
-    // alert('xd');
+
     return 0;
   }
-  
-  
-  // Por ejemplo:
   throw new Error('No se encontró el servicio o no tiene un precio válido');
 }
-
-
 
 
 orderData.price = checkPriceByName(request.terreno);
@@ -437,13 +332,11 @@ orderData.dolarValue = dolarValue;
   const calculateAmount = (financiation, terreno, almacenamiento, guarderia, sum, cw) => {
     const terrenoPrice = terreno ? checkPriceByName(terreno) : 0;
     const almacenamientoPrice = almacenamiento ? servicePrice(almacenamiento) : 0;
-    // console.log(almacenamiento)
+
     
     const guarderiaPrice = guarderia ? servicePrice("Pase Kinder") * guarderia : 0;
     const sumPrice = sum ? servicePrice("Pase SUM") * sum : 0;
     const cwPrice = cw ? servicePrice("Pase CoWorking") * cw : 0;
-    //if selected finaciation != 1 then handleClick() para que si cambia de terreno le cobre bien
-    // console.log( (terrenoPrice + almacenamientoPrice + guarderiaPrice + sumPrice + cwPrice)* parseFloat(financiation) );
     return (((terrenoPrice)* parseFloat(financiation)*dolarValue).toFixed(2)*0.05);
   };
 
@@ -463,16 +356,11 @@ orderData.dolarValue = dolarValue;
           console.log(selectedTerreno, selectedCW)
           handleClick();
         }
-        
-        
       } else {
         setInput2Disabled(true);
         
       }
     };
-  
-
-  
   
     const handleSelectCard = (event) => {
       setSelectedCard(event.target.value);
@@ -483,12 +371,6 @@ orderData.dolarValue = dolarValue;
         setInput3Disabled(true);
       }
     };
-    
-  
-  
-  //faltaria conectar los servicos para obtener los precios, quilombo para el fin de semana
- 
-  
     const handleSelectAlmacenamiento = (event) => {
       setSelectedAlmacenamiento(event.target.value);
       if (event.target.value !== '') {
@@ -501,10 +383,6 @@ orderData.dolarValue = dolarValue;
   
     };
   };
-  
-  
-  
-  
   
     const handleSelectGuarderia = (event) => {
       setSelectedGuarderia(event.target.value);
@@ -521,10 +399,6 @@ orderData.dolarValue = dolarValue;
         setInput5Disabled(true);
       }
     };
-    
-    
-    
-    
     
   const handleSelectSUM = async(event) => {
     setSelectedSUM(event.target.value);
@@ -545,7 +419,6 @@ orderData.dolarValue = dolarValue;
     orderData.financiation= financiacionGrid 
     orderData.cwPrice = servicePrice("Pase CoWorking");
     orderData.amount = calculateAmount(selectedFinanciation, selectedTerreno, selectedAlmacenamiento, selectedGuarderia, selectedSUM, event.target.value);
-    // setIsLoading(true);
     await handleClick();
     await handleClick();
     if (event.target.value !== '') {
@@ -562,9 +435,6 @@ orderData.dolarValue = dolarValue;
     setFinanciationGrid(value.grid)
     orderData.amount = calculateAmount(value.financiation, selectedTerreno, selectedAlmacenamiento, selectedGuarderia, selectedSUM, selectedCW);
     handleClick();
-    // handleClick();
-    
-    
   };
   
   
@@ -703,18 +573,7 @@ orderData.dolarValue = dolarValue;
         itemGrilla9 = '-';
         break;
     }
-    // className={selectedTerreno? "" : InputCSS.transparency50}
-
 if(cargaron === true){
-
-
-
-
-
-
-
-
-  
 
   return (
     
@@ -723,12 +582,7 @@ if(cargaron === true){
         <div>
           <b className={InputCSS.b}>Terreno</b>
           <p className={InputCSS.p}> ¿Cuál es el mejor para su familia?</p>
-          {/* <div className={InputCSS.moreInfo}>
-            <Info1/>
-          </div> */}
         </div>
-        {/* <div className={InputCSS['icono']}>?</div> */}
-
         <div className={InputCSS.grilla}> 
           <div className={`${InputCSS.itemGrilla} ${InputCSS.itemGrilla1}`}>{itemGrilla1}</div>
           <div className={`${InputCSS.itemGrilla} ${InputCSS.itemGrilla2}`}>{itemGrilla2}</div>

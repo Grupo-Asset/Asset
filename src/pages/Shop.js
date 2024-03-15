@@ -5,6 +5,7 @@ import Inputs from '../components/InputsCompra';
 import FAQ from '../components/PreguntasFrecuentes';
 // import Comparative from '../components/Comparative';
 import Resumen from '../components/ResumenCompra';
+import ShopInversion from '../components/NuevoShopInversion';
 
 function Shop() {
   const [seleccion, setSeleccion]= useState({});
@@ -23,28 +24,9 @@ function Shop() {
           <Carousel/>
         </div>
         <div className={ShopCSS.inputs}>
-          <Inputs seleccion={handleSeleccionUpdate}/>
+          {/* <Inputs seleccion={handleSeleccionUpdate}/> */}
+          <ShopInversion/>
         </div>
-      </div>
-      {/* <div>
-        <h1>Que incluye mi compra?</h1>
-        <Resumen seleccion={seleccion} />
-         por algun motivo extraño al pasarle el prop de seleccion a resumen este
-         por algun motivo extraño al pasarle el prop de seleccion a resumen este
-        se pasa correctametne solo la primera vez y no se actualiza cada vez que la seleccion 
-        cambia asi que como nadie nos obliga a usar ese componete...
-        mejor escrbiimos aca el resumen total es un codigo cortito 👌😎👍 
-        <span> mi compra incluye {JSON.stringify(seleccion)} </span>
-        <br/>
-      </div> */}
-      <div className={ShopCSS.comparative}>
-        <div>
-          {/* <Comparative/> */}
-        </div>
-      </div>
-      <div className={ShopCSS.faq}>
-      <h1>Preguntas Frecuentes</h1>
-        <FAQ/>
       </div>
       
     </div>
