@@ -6,7 +6,7 @@ import Inputs from '../components/InputsCompra';
 const Paso1 = () => {
   return (
     <div>
-      {/* Contenido del paso 1 holaaa*/} 
+      {/* Contenido del paso 1 holaaaaa*/} 
       <h3>Terreno</h3>
       <p>Contenido del paso 1</p>
       {/* <Inputs/> */}
