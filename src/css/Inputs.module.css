@@ -4,6 +4,13 @@
   grid-template-columns: repeat(1, 1fr);
 }
 
+.inputMonto{
+  border: none;
+  border-bottom: 1px solid rgb(180, 180, 180);
+  text-align: end;
+  width: 100px;
+}
+
 .radioInput {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -781,6 +788,7 @@ input[type="radio"] {
 	justify-content: center;
 
 	width: 100px;
+  height: 40px;
 	border-radius: 99px;
 	cursor: pointer;
 	transition: color 0.15s ease-in;
@@ -812,22 +820,18 @@ input[type="radio"]:checked + label > .notification {
 }
 
 input[id="radio1"]:checked ~ .glider {
-	transform: translateX(-107%);
+	transform: translateX(-55%);
 }
 
 input[id="radio2"]:checked ~ .glider {
-	transform: translateX(0%);
-}
-
-input[id="radio3"]:checked ~ .glider {
-	transform: translateX(107%);
+	transform: translateX(55%);
 }
 
 .glider {
 	position: absolute;
 	display: flex;
-	height: 36px;
-	width: 30%;
+  height: 40px;
+  width: 45%;
 	background-color: white;
 	z-index: 1;
 	border-radius: 2px;
@@ -888,4 +892,55 @@ input[id="radio3"]:checked ~ .glider {
 
 .containerWallet{
   padding: 0px 5px;
+}
+
+
+
+
+/* Inputs.module.css */
+.inputMonto::-webkit-outer-spin-button,
+.inputMonto::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputMonto[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.inputMonto:focus {
+  outline: none;
+  border-color: none; /* Establecer el color del borde como transparente */
+}
+
+
+
+.monto{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.montoSelected{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid rgba(48, 111, 219, 1);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
+.datos{
+  display: flex;
+  justify-content: space-between;
+  margin: 15px;
+}
+
+.datosAlign{
+  text-align: end;
 }
