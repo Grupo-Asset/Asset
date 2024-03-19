@@ -605,9 +605,6 @@ span[title]:hover:after {
     justify-content: center;
   } */
 
-  .shiftDown {
-    
-  }
 .color{
   margin-top: 40px;
     background-color: red!important;
@@ -738,9 +735,6 @@ span[title]:hover:after {
   
 }
 
-.radioInputCard .circle:hover {
-  /* background-color: blue; */
-}
 
 .radioInputCard.selected .circle {
   padding: 1px;
@@ -905,7 +899,9 @@ input[id="radio2"]:checked ~ .glider {
 }
 
 .inputMonto[type='number'] {
-  -moz-appearance: textfield;
+  -webkit-appearance: textfield; /* Safari y Chrome */
+  -moz-appearance: textfield; /* Firefox */
+  appearance: textfield; /* Propiedad estándar */
 }
 
 .inputMonto:focus {
@@ -943,4 +939,10 @@ input[id="radio2"]:checked ~ .glider {
 
 .datosAlign{
   text-align: end;
+}
+
+
+.separado{
+  display: flex;
+  justify-content: space-between;
 }
