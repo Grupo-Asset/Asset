@@ -131,10 +131,6 @@ const Banner = ({ imageUrl, title, subtitle, buttonAction, button }) => {
 export default Banner;
 
 
-
-
-
-
 export const BannerProductos = () => {
   const bannersData = [
     {
@@ -142,21 +138,21 @@ export const BannerProductos = () => {
       title: 'Quarters',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque l.',
       buttonAction: '/quarters',
-      button: 'Proyectos'
+      button: 'Saber más'
     },
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
       title: 'Towers',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque l.',
       buttonAction: '/towers',
-      button: 'Proyectos'
+      button: 'Saber más'
     },
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
       title: 'Retails',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque l.',
       buttonAction: '/retails',
-      button: 'Proyectos'
+      button: 'Saber más'
     },
   ];
 
@@ -248,14 +244,14 @@ export const RetailsBanners = () => {
   const bannersData = [
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
-      title: 'Towers 1',
+      title: 'Retails 1',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque l.',
       buttonAction: '/towers1',
       button: 'Saber más'
     },
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
-      title: 'Towers 2',
+      title: 'Retails 2',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque l.',
       buttonAction: '/towers2',
       button: 'Saber más'
