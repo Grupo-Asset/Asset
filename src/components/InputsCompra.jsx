@@ -837,6 +837,9 @@ if(cargaron === true){
         
       </div>
       </div>
+
+
+{/*       
       <div className={selectedTerreno?        "" : InputCSS.transparency50}>
       <div className={`${InputCSS['ref']}`} ref={cardRef}>
         <div>
@@ -844,7 +847,7 @@ if(cargaron === true){
           <p className={InputCSS.p}>¿Cuántas personas viven con usted?</p>
           {/* <div className={InputCSS.moreInfo}>
           <Info2/>
-          </div> */}
+          </div> *
         </div>
 
         <div>
@@ -903,6 +906,10 @@ if(cargaron === true){
         </div> 
       </div>
       </div>
+ */}
+
+
+{/* 
       <div className={selectedCard?           "" : InputCSS.transparency50}>
       <div className={InputCSS['ref']} ref={almacenamientoRef}>
         <div>
@@ -910,7 +917,7 @@ if(cargaron === true){
           <p className={InputCSS.p}>¿Cuánto espacio es el adecuado?</p>
             {/* <div className={InputCSS.moreInfo}>
               <Info3/>
-            </div> */}
+            </div> *
 
             <div className={InputCSS.grilla}>
               <div className={`${InputCSS.itemGrilla} ${InputCSS.itemGrilla1}`}>{itemGrilla4}</div>
@@ -927,22 +934,26 @@ if(cargaron === true){
             <span><input type="radio" value="Almacenamiento S" checked={selectedAlmacenamiento === 'Almacenamiento S'} onChange={handleSelectAlmacenamiento} disabled={input3Disabled} />
               Pequeño
           </span>
-          {/* <span className={InputCSS['precio']}>No disponible</span> */}
+          {/* <span className={InputCSS['precio']}>No disponible</span> *
           </label>
           <label className={`${InputCSS['radioInput']} ${selectedAlmacenamiento === 'Almacenamiento M' ? InputCSS.selected : ''}`}>
             <span><input type="radio" value="Almacenamiento M" checked={selectedAlmacenamiento === 'Almacenamiento M'} onChange={handleSelectAlmacenamiento} disabled={input3Disabled}/>
             Mediano
           </span>
-          {/* <span className={InputCSS['precio']}>No disponible</span> */}
+          {/* <span className={InputCSS['precio']}>No disponible</span> *
           </label>
           <label className={`${InputCSS['radioInput']} ${selectedAlmacenamiento === 'Almacenamiento L' ? InputCSS.selected : ''}`}>
             <span><input type="radio" value="Almacenamiento L" checked={selectedAlmacenamiento === 'Almacenamiento L'} onChange={handleSelectAlmacenamiento} disabled={input3Disabled}/>
             Grande
-          </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+          </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
           <br/>
         </div>
       </div>
       </div>
+ */}
+
+
+{/* 
       <div className={selectedAlmacenamiento? "" : InputCSS.transparency50}>
       <div className={InputCSS['ref']} ref={guarderiaRef}>
         <div>
@@ -950,25 +961,25 @@ if(cargaron === true){
           <p className={InputCSS.p}>¿Cuál es el plan que mejor se adapta a ti?</p>
           {/* <div className={InputCSS.moreInfo}>
               <Info4/>
-            </div> */}
+            </div> *
         </div>
         <div className={InputCSS['radioInputs']}>
           <label className={`${InputCSS['radioInput']} ${selectedGuarderia === '1' ? InputCSS.selected : ''}`}>
             <span><input type="radio" value="1" checked={selectedGuarderia === '1'} onChange={handleSelectGuarderia} disabled={input4Disabled}/>
             1 Meses
-          </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+          </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
           <label className={`${InputCSS['radioInput']} ${selectedGuarderia === '3' ? InputCSS.selected : ''}`}>
             <span><input type="radio" value="3" checked={selectedGuarderia === '3'} onChange={handleSelectGuarderia} disabled={input4Disabled}/>
             3 Meses
-          </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+          </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
           <label className={`${InputCSS['radioInput']} ${selectedGuarderia === '6' ? InputCSS.selected : ''}`}>
             <span><input type="radio" value="6" checked={selectedGuarderia === '6'} onChange={handleSelectGuarderia} disabled={input4Disabled}/>
             6 Meses
-          </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+          </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
           <label className={`${InputCSS['radioInput']} ${selectedGuarderia === '12' ? InputCSS.selected : ''}`}>
             <span><input type="radio" value="12" checked={selectedGuarderia === '12'} onChange={handleSelectGuarderia} disabled={input4Disabled}/>
             12 Meses
-          </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+          </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
         <label className={`${InputCSS['radioInput']} ${selectedGuarderia === '0' ? InputCSS.selected : ''}`}>
             <span><input type="radio" value="0" checked={selectedGuarderia === '0'} onChange={handleSelectGuarderia} disabled={input4Disabled}/>
             Ninguno
@@ -977,6 +988,10 @@ if(cargaron === true){
         </div>
       </div>
       </div>
+ */}
+
+
+{/* 
       <div className={selectedGuarderia?      "" : InputCSS.transparency50}>
       <div className={InputCSS['ref']} ref={sumRef}>
         <div>
@@ -984,21 +999,21 @@ if(cargaron === true){
           <p className={InputCSS.p}>Reservá el espacio para juntarte con las personas que más querés.</p>
           {/* <div className={InputCSS.moreInfo}>
               <Info5/>
-            </div> */}
+            </div> *
           </div>
           <div className={InputCSS['radioInputs']}>
             <label className={`${InputCSS['radioInput']} ${selectedSUM === '6' ? InputCSS.selected : ''}`}>
               <span><input type="radio" value="6" checked={selectedSUM === '6'} onChange={handleSelectSUM} disabled={input5Disabled}/>
               6 Meses
-            </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+            </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
             <label className={`${InputCSS['radioInput']} ${selectedSUM === '12' ? InputCSS.selected : ''}`}>
               <span><input type="radio" value="12" checked={selectedSUM === '12'} onChange={handleSelectSUM} disabled={input5Disabled}/>
               12 Meses
-            </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+            </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
             <label className={`${InputCSS['radioInput']} ${selectedSUM === '24' ? InputCSS.selected : ''}`}>
               <span><input type="radio" value="24" checked={selectedSUM === '24'} onChange={handleSelectSUM} disabled={input5Disabled}/>
               24 Meses
-            </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+            </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
           <label className={`${InputCSS['radioInput']} ${selectedSUM === '0' ? InputCSS.selected : ''}`}>
               <span><input type="radio" value="0" checked={selectedSUM === '0'} onChange={handleSelectSUM} disabled={input5Disabled}/>
               Ninguno
@@ -1007,6 +1022,11 @@ if(cargaron === true){
           </div>
         </div>
         </div>
+ */}
+
+
+
+{/* 
         <div className={selectedSUM?            "" : InputCSS.transparency50}>
           <div className={InputCSS['ref']} ref={cwRef}>
             <div>
@@ -1014,21 +1034,21 @@ if(cargaron === true){
               <p className={InputCSS.p}>Reservá el espacio para lo que tú quieras.</p>
               {/* <div className={InputCSS.moreInfo}>
                 <Info6/>
-              </div> */}
+              </div> *
             </div>
             <div className={InputCSS['radioInputs']}>
               <label className={`${InputCSS['radioInput']} ${selectedCW === '3' ? InputCSS.selected : ''}`}>
                 <span><input type="radio" value="3" checked={selectedCW === '3'} onChange={handleSelectCW} disabled={input6Disabled}/>
                 3 Meses
-              </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+              </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
               <label className={`${InputCSS['radioInput']} ${selectedCW === '6' ? InputCSS.selected : ''}`}>
                 <span><input type="radio" value="6" checked={selectedCW === '6'} onChange={handleSelectCW} disabled={input6Disabled}/>
                 6 Meses
-              </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+              </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
               <label className={`${InputCSS['radioInput']} ${selectedCW === '12' ? InputCSS.selected : ''}`}>
                 <span><input type="radio" value="12" checked={selectedCW === '12'} onChange={handleSelectCW} disabled={input6Disabled}/>
                 12 Meses
-              </span>{/* <span className={InputCSS['precio']}>No disponible</span> */}</label>
+              </span>{/* <span className={InputCSS['precio']}>No disponible</span> *</label>
             <label className={`${InputCSS['radioInput']} ${selectedCW === '0' ? InputCSS.selected : ''}`}>
                 <span><input type="radio" value="0" checked={selectedCW === '0'} onChange={handleSelectCW} disabled={input6Disabled}/>
                 Ninguno
@@ -1037,6 +1057,11 @@ if(cargaron === true){
             </div>
           </div>
         </div>
+ */}
+
+
+
+{/* 
         <div className={selectedCW?             "" : InputCSS.transparency50}>
           <div className={InputCSS['ref']} ref={FinanciationRef}>
             <div>
@@ -1044,7 +1069,7 @@ if(cargaron === true){
               <p className={InputCSS.p}>Selecciona el mejor para ti.</p>
               {/* <div className={InputCSS.moreInfo}>
                 <Info6/>
-              </div> */}
+              </div> *
             </div>
               <div className={InputCSS.containers}>
                 <div className={InputCSS.tabs}>
@@ -1091,6 +1116,10 @@ if(cargaron === true){
                 </div>
           </div>
         </div>
+ */}
+
+
+
       </div>
     
   );
@@ -1210,7 +1239,7 @@ if(cargaron === true){
         <span><input type="radio" value="F13" checked={selectedTerreno === 'Lote 13'} readOnly   />
         F 13 
       </span></label>
-      <br/>
+
       
     </div>
       </div>
@@ -1301,24 +1330,24 @@ if(cargaron === true){
     </div>
     </div> */}
 
-    <div className={InputCSS['ref']} ref={pagoRef}>
+    {/* <div className={InputCSS['ref']} ref={pagoRef}>
     <div><b className={InputCSS.b}> Opciones de pago.</b> <p className={InputCSS.p}>Seleccione el que funcione para usted.</p></div>
     <div className={InputCSS['radioInputs']}>
       <label className={`${InputCSS['radioInput']} ${ InputCSS.selected}`}>
-        <span><input type="radio" value="1" /**onChange={handleSelectPago}**/ disabled={input6Disabled}/>
+        <span><input type="radio" value="1" /**onChange={handleSelectPago} disabled={input6Disabled}/>
         1 cuota
       </span></label>
       <label className={`${InputCSS['radioInput']} ${InputCSS.selected}`}>
-        <span><input type="radio" value="6"  /**onChange={handleSelectPago}**/ disabled={input6Disabled}/>
+        <span><input type="radio" value="6"  /**onChange={handleSelectPago} disabled={input6Disabled}/>
         6 cuotas
       </span></label>
       <label className={`${InputCSS['radioInput']} ${ InputCSS.selected}`}>
-        <span><input type="radio" value="12" /**onChange={handleSelectPago}**/ disabled={input6Disabled}/>
+        <span><input type="radio" value="12" /**onChange={handleSelectPago}disabled={input6Disabled}/>
         12 cuotas
       </span></label>
       <br/>
     </div>
-    </div>
+    </div> */}
   </div>
   
 

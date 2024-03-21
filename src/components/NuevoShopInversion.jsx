@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import { Paso1, Paso2, Paso3, Paso4, Paso5 } from './PasosCompra';
 import InputCSS from '../css/Inputs.module.css';
-import Inputs from '../components/InputsCompra'
+import Inputs from '../components/InputsCompra';
+import BannerCSS from '../css/BannerProductos.module.css';
+import { Button } from '@mui/material';
 
 initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd");
 
@@ -109,8 +111,25 @@ const ShopInversion = () => {
                 </div>
               </div>
               
-              <div>
-                <button onClick={handleInvertir}>Confirmar</button>
+              <div className={InputCSS.botonComercial}>
+              <Button
+                    onClick={handleInvertir}
+                    sx={{
+                      color: 'white',
+                      backgroundColor: 'black',
+                      borderRadius: '50px',
+                      cursor: 'pointer',
+                      textTransform: 'none',
+                      padding: '5px 25px',
+                      border: 'none',
+                      '&:hover': {
+                        backgroundColor: 'black',
+                      },
+                    }}
+                    className={`${BannerCSS.button} ${BannerCSS.backButton} ${BannerCSS.backButtonAnimation}`}
+                  >
+                    Confirmar
+                  </Button>
               </div>
             </div>
           )}
@@ -121,6 +140,26 @@ const ShopInversion = () => {
               <h3 className={InputCSS.title}>Selecciona la mejor opcion para vos</h3>
               <div>
               <Inputs seleccion={handleSeleccionUpdate}/>
+                <div className={InputCSS.botonComercial}>
+                  <Button
+                        onClick={handleInvertir}
+                        sx={{
+                          color: 'white',
+                          backgroundColor: 'black',
+                          borderRadius: '50px',
+                          cursor: 'pointer',
+                          textTransform: 'none',
+                          padding: '5px 25px',
+                          border: 'none',
+                          '&:hover': {
+                            backgroundColor: 'black',
+                          },
+                        }}
+                        className={`${BannerCSS.button} ${BannerCSS.backButton} ${BannerCSS.backButtonAnimation}`}
+                      >
+                        Continuar
+                    </Button>
+                  </div>
               </div>
             </div>
           )}

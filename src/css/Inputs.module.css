@@ -2,6 +2,8 @@
   display: grid;
   flex-wrap: wrap;
   grid-template-columns: repeat(1, 1fr);
+  height: 200px;
+  overflow: auto;
 }
 
 .inputMonto{
@@ -945,4 +947,11 @@ input[id="radio2"]:checked ~ .glider {
 .separado{
   display: flex;
   justify-content: space-between;
+}
+
+
+.botonComercial{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
