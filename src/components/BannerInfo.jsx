@@ -138,21 +138,21 @@ export const BannerProductos = () => {
       title: 'Quarters',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque l.',
       buttonAction: '/quarters',
-      button: 'Saber más'
+      button: 'Saber  más'
     },
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
       title: 'Towers',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque l.',
       buttonAction: '/towers',
-      button: 'Saber más'
+      button: 'Saber  más'
     },
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
       title: 'Retails',
       subtitle: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Condimentum vitae sapien pellentesque l.',
       buttonAction: '/retails',
-      button: 'Saber más'
+      button: 'Saber  más'
     },
   ];
 

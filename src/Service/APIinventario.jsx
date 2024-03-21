@@ -7,10 +7,9 @@ async function getProductos() {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-        },
+        },  
         
       });
-  
       if (!response.ok) {
         throw new Error(`Network response was not ok (${response.status})`);
       }
@@ -27,7 +26,7 @@ async function getProductos() {
       throw error; // Puedes manejar el error de otra manera si es necesario.
     }
   }
-  
+
   async function getServicios() {
     try {
         const response = await fetch('http://localhost:8080/inventory/services', {

@@ -4,7 +4,7 @@ import { Paso1, Paso2, Paso3, Paso4, Paso5 } from './PasosCompra';
 import InputCSS from '../css/Inputs.module.css';
 import Inputs from '../components/InputsCompra'
 
-initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd"); // Inicializa MercadoPago después de las importaciones
+initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd");
 
 const ShopInversion = () => {
   const [tipoInversion, setTipoInversion] = useState('comercial');
