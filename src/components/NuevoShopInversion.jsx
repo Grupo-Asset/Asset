@@ -10,7 +10,7 @@ initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd");
 
 const ShopInversion = () => {
   const [tipoInversion, setTipoInversion] = useState('comercial');
-  const [montoInversion, setMontoInversion] = useState(0);
+  const [montoInversion, setMontoInversion] = useState();
   const [step, setStep] = useState(1);
   const [mostrarContenidoInversion, setMostrarContenidoInversion] = useState(true);
   const [mostrarContenedorPrincipal, setMostrarContenedorPrincipal] = useState(true);
@@ -25,8 +25,10 @@ const ShopInversion = () => {
 
   const calcularGananciaAnual = () => {
     const gananciaAnual = montoInversion * 0.02;
-    return (montoInversion + gananciaAnual).toFixed(2);
+    const resultado = montoInversion + gananciaAnual;
+    return isNaN(resultado) ? "0" : resultado.toFixed(2);
   };
+  
 
   const handleNext = () => {
     setStep(step + 1);
