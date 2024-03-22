@@ -18,7 +18,6 @@ const Banner = ({ imageUrl, title, subtitle, buttonAction, button }) => {
   const handleClick = () => {
     if (button === 'Saber más') {
       toggleInfo();
-      window.scrollTo(0, 0);
     } else {
       localStorage.setItem('investTitle', title);
       window.location.href = buttonAction;

@@ -93,6 +93,7 @@ const ShopInversion = () => {
                   className={InputCSS.inputMonto}
                   value={montoInversion}
                   onChange={handleMontoInversionChange}
+                  required
                 />
               </div>
               <div className={`${InputCSS.montoSelected} ${InputCSS.separado}`}>
@@ -128,8 +129,7 @@ const ShopInversion = () => {
                         backgroundColor: 'black',
                       },
                     }}
-                    className={`${BannerCSS.button} ${BannerCSS.backButton} ${BannerCSS.backButtonAnimation}`}
-                  >
+                    className={`${BannerCSS.button} ${BannerCSS.backButton} ${BannerCSS.backButtonAnimation}`}>
                     Confirmar
                   </Button>
               </div>
@@ -171,36 +171,132 @@ const ShopInversion = () => {
       {/* Aquí puedes agregar otro contenido que reemplazará el contenedor principal */}
       {!mostrarContenedorPrincipal && (
         <div className={InputCSS.containers}>
-          <h3 className={InputCSS.title}>Inversion</h3>
-          <h4 className={InputCSS.subtitle}>Tu futuro asegurado</h4>
-          <div className={InputCSS.tabs}>
-            <input
-              type="radio"
-              id="radio1"
-              name="tabs"
-              value="comercial"
-              checked={tipoInversion === 'comercial'}
-              onChange={handleTipoInversionChange}
-            />
-            <label htmlFor="radio1" className={InputCSS.tab}>
-              Pesos
-            </label>
-            <input
-              type="radio"
-              id="radio2"
-              name="tabs"
-              value="residencial"
-              checked={tipoInversion === 'residencial'}
-              onChange={handleTipoInversionChange}
-            />
-            <label htmlFor="radio2" className={InputCSS.tab}>
-              Dólares
-            </label>
-            <span className={InputCSS.glider}></span>
-          </div>
-          <div>
-            <div id="wallet_container"></div>
-            <Wallet initialization={{ preferenceId: '<PREFERENCE_ID>' }} customization={{ texts:{ valueProp: 'smart_option'}}} />
+          <h3 className={InputCSS.titleInv}>Completa tus datos para continuar</h3>
+          <h4 className={InputCSS.subtitleInv}>Crear cuenta</h4>
+
+          <div className={InputCSS.inputs}>
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="nombre" className={InputCSS.label}>Nombre</label>
+              <input
+                type="text"
+                id="nombre"
+                
+                className={InputCSS.input}
+                required
+              />
+            </div>
+            
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="apellido" className={InputCSS.label}>Apellido</label>
+              <input
+                type="text"
+                id="apellido"
+                className={InputCSS.input}
+                required
+              />
+            </div>
+
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="email" className={InputCSS.label}>Email</label>
+              <input
+                type="email"
+                id="email"
+                className={InputCSS.input}
+                required
+              />
+            </div>
+
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="dni" className={InputCSS.label}>DNI</label>
+              <input
+                type="dni"
+                id="dni"
+                className={InputCSS.input}
+                required
+              />
+            </div>
+
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="cbu-alias" className={InputCSS.label}>CBU o Alias</label>
+              <input
+                type="cbu-alias"
+                id="cbu-alias"
+                className={InputCSS.input}
+                required
+              />
+            </div>
+
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="telefono" className={InputCSS.label}>Teléfono</label>
+              <input
+                type="telefono"
+                id="telefono"
+                className={InputCSS.input}
+                required
+              />
+            </div>
+
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="domicilio" className={InputCSS.label}>Domicilio</label>
+              <input
+                type="domicilio"
+                id="domicilio"
+                className={InputCSS.input}
+                required
+              />
+            </div>
+
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="cuilcuit" className={InputCSS.label}>CUIL o CUIT</label>
+              <input
+                type="cuilcuit"
+                id="cuilcuit"
+                className={InputCSS.input}
+                required
+              />
+            </div>
+
+            <div className={InputCSS.inpustPart}>
+              <label htmlFor="inversión" className={InputCSS.label}>Inversión</label>
+              <input
+                type="inversión"
+                id="inversión"
+                className={InputCSS.input}
+                required
+              />
+            </div>
+            <div className={InputCSS.labelTerm}>
+              <label htmlFor="terminosCondiciones" className={InputCSS.label}>
+                <input
+                  type="checkbox"
+                  id="terminosCondiciones"
+                  className={InputCSS.checkbox}
+                  required
+                />
+                Acepto los términos y condiciones
+              </label>
+            </div>
+
+            <div className={InputCSS.botonComercial}>
+            <Button
+            
+                        sx={{
+                          color: 'white',
+                          backgroundColor: 'black',
+                          borderRadius: '50px',
+                          cursor: 'pointer',
+                          textTransform: 'none',
+                          padding: '5px 25px',
+                          border: 'none',
+                          '&:hover': {
+                            backgroundColor: 'black',
+                          },
+                        }}
+                        className={`${BannerCSS.button} ${BannerCSS.backButton} ${BannerCSS.backButtonAnimation}`}
+                      >
+                        Finalizar
+                    </Button>
+            </div>
           </div>
           
           {tipoInversion === 'comercial' && mostrarContenidoInversion && (
@@ -255,3 +351,9 @@ const ShopInversion = () => {
 };
 
 export default ShopInversion;
+
+
+
+
+
+

@@ -977,3 +977,28 @@ input[id="radio2"]:checked ~ .glider {
 .titleSim{
   margin: 10px 0;
 }
+
+
+.inpustPart{
+  background-color: #F3F3F3;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 100px;
+  margin: 10px 0;
+}
+
+.inpustPart input{
+  padding: 0 0 0 10px;
+  background: transparent;
+  border: none;
+  width: 74%;
+  border-left: #86868A 2px solid;
+  outline: none;
+}
+
+
+.labelTerm label{
+  align-items: center;
+  display: flex;
+}
