@@ -920,7 +920,7 @@ input[id="radio2"]:checked ~ .glider {
   border: 1px solid black;
   border-radius: 10px;
   padding: 10px;
-  margin: 10px;
+  margin: 15px 0;
 }
 
 .montoSelected{
@@ -930,7 +930,7 @@ input[id="radio2"]:checked ~ .glider {
   border: 2px solid rgba(48, 111, 219, 1);
   border-radius: 10px;
   padding: 10px;
-  margin: 10px;
+  margin: 15px 0;
 }
 
 .datos{
@@ -943,6 +943,10 @@ input[id="radio2"]:checked ~ .glider {
   text-align: end;
 }
 
+.datos p, .datosAlign p{
+  padding: 5px;
+
+}
 
 .separado{
   display: flex;
@@ -954,4 +958,22 @@ input[id="radio2"]:checked ~ .glider {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+
+.titleInv{
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.subtitleInv{
+  font-size: 1rem;
+  color: #86868A;
+  text-align: center;
+  margin: 15px;
+}
+
+.titleSim{
+  margin: 10px 0;
 }

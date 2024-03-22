@@ -52,8 +52,8 @@ const ShopInversion = () => {
     <div>
       {mostrarContenedorPrincipal && (
         <div className={InputCSS.containers}>
-          <h3 className={InputCSS.title}>¿Qué tipo de inversión estás buscando?</h3>
-          <h4 className={InputCSS.subtitle}>¿Cuál es la mejor opción?</h4>
+          <h3 className={InputCSS.titleInv}>¿Qué tipo de inversión estás buscando?</h3>
+          <h4 className={InputCSS.subtitleInv}>¿Cuál es la mejor opción?</h4>
           <div className={InputCSS.tabs}>
             <input
               type="radio"
@@ -83,7 +83,7 @@ const ShopInversion = () => {
           {/* Contenido específico para inversión comercial */}
           {tipoInversion === 'comercial' && mostrarContenidoInversion && (
             <div className={InputCSS.content}>
-              <h3 className={InputCSS.title}>Simulá tu inversión</h3>
+              <h3 className={InputCSS.titleSim}>Simulá tu inversión</h3>
               <div className={InputCSS.monto}>
                 <label htmlFor="monto" className={InputCSS.label}>Monto de la inversión</label>
                 <input

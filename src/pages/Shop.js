@@ -13,9 +13,7 @@ function Shop() {
   const handleSeleccionUpdate = (nuevaSeleccion)=>{
     setSeleccion(nuevaSeleccion);
     // console.log('hola desde shop')
-
   }
-
   
   return (
     <div className={ShopCSS.body}>

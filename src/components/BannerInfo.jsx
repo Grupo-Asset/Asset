@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import BannerCSS from '../css/BannerProductos.module.css';
 import { Button } from '@mui/material';
+// import Icon from '@mdi/react';
+// import { mdiTextureBox } from '@mdi/js'; para después
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExpand } from '@fortawesome/free-solid-svg-icons';
+
+
 
 const Banner = ({ imageUrl, title, subtitle, buttonAction, button }) => {
   const [showInfo, setShowInfo] = useState(false);
@@ -12,6 +18,7 @@ const Banner = ({ imageUrl, title, subtitle, buttonAction, button }) => {
   const handleClick = () => {
     if (button === 'Saber más') {
       toggleInfo();
+      window.scrollTo(0, 0);
     } else {
       localStorage.setItem('investTitle', title);
       window.location.href = buttonAction;
@@ -20,7 +27,21 @@ const Banner = ({ imageUrl, title, subtitle, buttonAction, button }) => {
   
   const handleBack = () => {
     toggleInfo();
+    window.scrollTo(0, 0);
   };
+  
+
+  const characteristics = [
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "SUperficie total: 95m²" },
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "Ambientes: 4" },
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "Dormitorios: 3" },
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "Expensas: ARS $70.000" },
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "Pisos de la propiedad: 3" },
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "Superficie cubierta: 58m²" },
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "Baños: 1" },
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "Antiguedad: A estrenar" },
+    { icon: <FontAwesomeIcon icon={faExpand} />, text: "Apto crédito: Si" },
+  ];
 
   return (
     <div className={BannerCSS.banner}>
@@ -77,6 +98,29 @@ const Banner = ({ imageUrl, title, subtitle, buttonAction, button }) => {
                     tabIndex="0"
                   ></iframe>
                 </div>
+              </div>
+              <div className={BannerCSS.caracteristicas}>
+                <h2>Características del desarrollo</h2>
+                <div>
+                  <p className={BannerCSS.parrafoInfo}>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eleifend quam adipiscing vitae proin. Accumsan tortor posuere ac ut consequat. Maecenas pharetra convallis posuere morbi leo urna molestie at. Arcu risus quis varius quam quisque id diam vel. Integer enim neque volutpat ac tincidunt vitae semper quis lectus. Neque convallis a cras semper auctor neque vitae tempus quam. Vitae tempus quam pellentesque nec nam. Quis ipsum suspendisse ultrices gravida dictum fusce. Et malesuada fames ac turpis egestas sed tempus urna. Eget aliquet nibh praesent tristique magna sit. Quis enim lobortis scelerisque fermentum dui faucibus. Cursus vitae congue mauris rhoncus aenean.
+
+Aliquam purus sit amet luctus venenatis lectus magna. Suspendisse faucibus interdum posuere lorem ipsum. Mauris pellentesque pulvinar pellentesque habitant morbi tristique senectus. Suspendisse faucibus interdum posuere lorem ipsum dolor. Et malesuada fames ac turpis egestas integer eget. Ut porttitor leo a diam sollicitudin tempor id eu nisl. Augue eget arcu dictum varius duis at consectetur lorem. In fermentum posuere urna nec tincidunt praesent semper feugiat nibh. Tortor dignissim convallis aenean et. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Vitae proin sagittis nisl rhoncus mattis rhoncus. Dictum at tempor commodo ullamcorper a lacus. Ultricies mi quis hendrerit dolor magna. Maecenas ultricies mi eget mauris pharetra et ultrices. Porttitor massa id neque aliquam vestibulum morbi. Habitant morbi tristique senectus et netus et malesuada fames ac. Quis hendrerit dolor magna eget est lorem. Et odio pellentesque diam volutpat commodo sed egestas.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <h2 className={BannerCSS.valorVenta}>90.000 USD</h2>
+              </div>
+              <div>
+              <div className={BannerCSS.grillaCaracter}>
+                {characteristics.map((characteristic, index) => (
+                  <div key={index} className={BannerCSS.caracteristica}>
+                    <div className="icono">{characteristic.icon}</div>
+                    <p className={BannerCSS.textCaract}>{characteristic.text}</p>
+                  </div>
+                ))}
+              </div>
               </div>
               <div className={BannerCSS.botonesInfo}>
                   <Button
@@ -245,7 +289,7 @@ export const RetailsBanners = () => {
       buttonAction: '/shop',
       button: 'Saber más'
     },
-    
+
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
       title: 'Retails 2',

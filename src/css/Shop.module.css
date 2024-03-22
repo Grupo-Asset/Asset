@@ -17,17 +17,16 @@
 
 .carousel {
   width: 70vw;
-  height: fit-content;
-  position: sticky;
-  top: 50px;
 }
 
 .inputs {
   width: 30%;
-  max-height: 340px;
-  top: 90px;
-  position: relative;
-  /* padding-right: 1rem; */
+  /* top: 90px; */
+  /* position: relative; */
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding: 10px;
 }
 
 .faq{
