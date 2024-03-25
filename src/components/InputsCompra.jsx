@@ -740,11 +740,11 @@ if(cargaron === true){
 
       <div className={InputCSS['radioInputs']} style={{ maxHeight: '265px', overflowY: 'auto' }}>          <label className={`${InputCSS['radioInput']} ${selectedTerreno === 'Lote 1' ? InputCSS.selected : ''}`}>
             <span><input
-              type="radio" 
+              type="radio"
               value="Lote 1"
-              checked={selectedTerreno === 'Lote 1'} 
+              checked={selectedTerreno === 'Lote 1'}
               onChange={handleSelectTerreno}
-              disabled={!checkStockByName("Lote 1")} 
+              disabled={!checkStockByName("Lote 1")}
               />
             F1 </span> <div><span className={InputCSS['precio']}>${numeral((checkPriceByName("Lote 1")*selectedFinanciation).toFixed(2)).format('0,0.00')}</span>  {!checkStockByName("Lote 1") && <div className={InputCSS['end']}>  <span className={InputCSS['noDisp']}>‎ Lote no disponible</span></div>}</div>
           </label>

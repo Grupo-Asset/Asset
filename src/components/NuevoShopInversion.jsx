@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useContext, useRef } from "react";
 import { initMercadoPago, Wallet } from '@mercadopago/sdk-react';
 import { Paso1, Paso2, Paso3, Paso4, Paso5 } from './PasosCompra';
 import InputCSS from '../css/Inputs.module.css';
 import Inputs from '../components/InputsCompra';
 import BannerCSS from '../css/BannerProductos.module.css';
 import { Button } from '@mui/material';
+import Checkout from "./Checkout";
 
 initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd");
 
@@ -139,7 +140,7 @@ const ShopInversion = () => {
           {/* Contenido específico para inversión residencial */}
           {tipoInversion === 'residencial' && (
             <div className={InputCSS.content}>
-              <h3 className={InputCSS.title}>Selecciona la mejor opcion para vos</h3>
+              <h3 className={InputCSS.titleSel}>Selecciona la mejor opcion para vos</h3>
               <div>
               <Inputs seleccion={handleSeleccionUpdate}/>
                 <div className={InputCSS.botonComercial}>

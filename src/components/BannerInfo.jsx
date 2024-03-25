@@ -28,7 +28,7 @@ const Banner = ({ imageUrl, title, subtitle, buttonAction, button }) => {
     toggleInfo();
     window.scrollTo(0, 0);
   };
-  
+
 
   const characteristics = [
     { icon: <FontAwesomeIcon icon={faExpand} />, text: "SUperficie total: 95m²" },
@@ -170,7 +170,7 @@ Aliquam purus sit amet luctus venenatis lectus magna. Suspendisse faucibus inter
 export default Banner;
 
 
-export const BannerProductos = () => {
+export const BannerProductos = ({ showInfo }) => {
   const bannersData = [
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
@@ -197,7 +197,7 @@ export const BannerProductos = () => {
 
   return (
     <div>
-      {bannersData.map((banner, index) => (
+      {!showInfo && bannersData.map((banner, index) => (
         <Banner
           key={index}
           imageUrl={banner.imageUrl}
@@ -220,6 +220,7 @@ export const QuartersBanners = () => {
       buttonAction: '/shop',
       button: 'Saber más'
     },
+
     {
       imageUrl: 'https://res.cloudinary.com/dazsjxtmy/image/upload/f_auto/v1687751164/09_CALLE_INTERNA_BLUE_HOUR_4K_POS_mscfkm.jpg',
       title: 'Quarters Family 2',

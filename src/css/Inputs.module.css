@@ -1002,3 +1002,10 @@ input[id="radio2"]:checked ~ .glider {
   align-items: center;
   display: flex;
 }
+
+
+.titleSel{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
