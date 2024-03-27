@@ -19,7 +19,6 @@ async function getProductos() {
       sessionStorage.setItem('productos', JSON.stringify(data.data));
 
       // Puedes realizar acciones adicionales con los datos de respuesta si es necesario.
-  
       return data.data;
     } catch (error) {
       console.error('There was a problem with the login operation:', error);

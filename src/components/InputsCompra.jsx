@@ -15,6 +15,7 @@ import { SpinnerCircular } from 'spinners-react';
 import Payment from "./Payment";
 import  {Context as NotificationContext} from '../context/notification-context'
 import { OpacityOutlined } from '@mui/icons-material';
+import { useProducts } from '../Service/CustomHooks/useInventory';
 
 //credencial de prueba test user 1
 initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd");
@@ -49,7 +50,7 @@ export default function RadioInputs({seleccion}) {
   const [showLoged, setShowLoged] = useState(false);
   const {activar, playAnimation, notificar} = useContext(NotificationContext);
   const refA = useRef(null);
-
+  
   
 useEffect(()=> {
   const valorDolar = getDolarAmbito()
@@ -65,13 +66,12 @@ const [isLoading, setIsLoading] = useState(false);
   
   const [input6Disabled, setInput6Disabled] = useState(true ); 
   const [input7Disabled, setInput7Disabled] = useState(true ); 
-  const [cargaron,             setCargaron] = useState(false);
+
   const [selectedTerreno,         setSelectedTerreno]         = useState('');
   const [financiacionGrid,        setFinanciationGrid]        = useState('contado');
   const [selectedFinanciation,    setSelectedFinanciation]    = useState(parseFloat(1));
-  const [productos, setProductos] = useState([]);
-  const [servicios, setServicios] = useState([]);
-  
+ 
+  const [productos, setProductos] = useState([])
   const urlParams = new URLSearchParams(window.location.search);
   const status = Object.fromEntries(urlParams).status;
   // console.log("params del link:",Object.fromEntries(urlParams))
@@ -98,7 +98,11 @@ useEffect(() => {
   logOrderData();
 }, [orderData,selectedTerreno]);
 
-
+useEffect(()=>{
+  async function cargar(){
+    
+  }
+})
 //deberia hacer que productos tenga un useState y para que se ejecute cuando cambia la lista (reducir sto
 
 // useEffect(
@@ -110,6 +114,7 @@ useEffect(() => {
 // }, [selectedTerreno,input2Disabled]);
 
 useEffect(() => {
+  
     window.scrollTo({top: 0, behavior: 'smooth' });  
 }, []);
 
@@ -117,22 +122,7 @@ useEffect(()=>{
   seleccion(orderData);
 },[orderData, setOrderData,selectedTerreno]);
 
-useEffect(() => {
-  async function cargar(){
-    if(!cargaron){
-      const prods = await getProductos();
-      const servs = await getServicios();
-      
-      setProductos(prods);
-      setServicios(servs);
-      
-      console.log(" finalizo y dice:",productos);
-      
-      setCargaron(true);
-    }
-  }
-  cargar();
-}, []);
+
 
   useEffect(() => {
     if (usuario) setShowLoged(false);
@@ -210,6 +200,7 @@ useEffect(() => {
 function checkSKUByName(name) {
   const obj = productos.find(item => item.name === name);
   if (obj.sku) {
+    console.log("sku", obj.sku)
     return obj.sku;
   } else {
     return "no habia";
@@ -217,7 +208,7 @@ function checkSKUByName(name) {
 }
 
 function checkStockByName(name) {
-
+  
   const obj = productos.find(item => item.name === name);
   if (obj && obj.stock > 0) {
     return true;
@@ -227,7 +218,7 @@ function checkStockByName(name) {
 }
 
 function checkPriceByName(name) {
-  // console.log(productos)
+  // alert()
   const obj = productos.find(item => item.name === name);
   if (obj && obj.price > 0) {
     // console.log(obj.price)
@@ -240,15 +231,15 @@ function checkPriceByName(name) {
 function randomNum(){return 123}
 const randomNumber = () => {return 666}
 
-orderData.price = checkPriceByName(request.terreno);
+// orderData.price = checkPriceByName(request.terreno);
 //MERCADO PAGO
   sessionStorage.setItem("compra", JSON.stringify(orderData));
 
 const handleClick = () => {
   orderData.sku=checkSKUByName(orderData.description);
+  
   orderData.stock=checkStockByName(orderData.description);
   orderData.backURL="feedback"
-  orderData.transfer = "\a\a\a\a\a\a\\tatatatatataaaaaaaaaaaaa" 
   orderData.tax = 0.21;
   setIsLoading(true);
 
@@ -290,9 +281,6 @@ const renderSpinner = () => {
 //FIN MERCADO PAGO
 
 
-
-
-
 orderData.dolarValue = dolarValue;
   //IMPORTANTE!!!!!!!!
   //ESTA FUNCION ES LA QUE DEFINE CUANTO SE VA A FACTURAR, EN PESOS!!, multiplica por .05 por que es el 5% de la reserva
@@ -303,16 +291,10 @@ orderData.dolarValue = dolarValue;
     return (((terrenoPrice)* parseFloat(financiation)*dolarValue).toFixed(2)*0.05);
   };
 
-
-
-
-
-
-
-
   const handleSelectTerreno = (event) => {
     setSelectedTerreno(event.target.value);
     orderData.amount = calculateAmount(selectedFinanciation, event.target.value);
+    // handleClick();
     };
   
 
@@ -444,7 +426,7 @@ orderData.dolarValue = dolarValue;
     }
     // className={selectedTerreno? "" : InputCSS.transparency50}
 
-if(cargaron === true){
+if(!loading){
 
   return (
     
