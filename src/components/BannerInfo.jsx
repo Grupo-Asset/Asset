@@ -58,6 +58,7 @@ const Banner = ({ imageUrl, title, subtitle, buttonAction, button }) => {
             textTransform: 'none',
             padding: '5px 25px',
             border: 'none',
+            zIndex: '2',
             '&:hover': {
               backgroundColor: 'black',
             },
