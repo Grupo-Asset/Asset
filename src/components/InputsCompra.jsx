@@ -451,8 +451,8 @@ if(cargaron === true){
     <div >
       <div>
         <div>
-          <b className={InputCSS.b}>Terreno</b>
-          <p className={InputCSS.p}> ¿Cuál es el mejor para su familia?</p>
+          {/* <b className={InputCSS.b}>Terreno</b>
+          <p className={InputCSS.p}> ¿Cuál es el mejor para su familia?</p> */}
           {/* <div className={InputCSS.moreInfo}>
             <Info1/>
           </div> */}
@@ -630,9 +630,9 @@ if(cargaron === true){
   return(
     <div>
     <div>
-      <div className={InputCSS.textContainer}>
+      {/* <div className={InputCSS.textContainer}>
   <b className={InputCSS.text}>Terreno</b> <p className={InputCSS.p}>¿Cuál es el mejor para su familia?</p>
-      </div>
+      </div> */}
       <div className={InputCSS['radioInputs']}>
         <label className={`${InputCSS['radioInput']} ${selectedTerreno === 'Lote 1' ? InputCSS.selected : ''}`}>
           <input 

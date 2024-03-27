@@ -60,7 +60,7 @@ const ShopInversion = () => {
       {mostrarContenedorPrincipal && (
         <div className={InputCSS.containers}>
           <h3 className={InputCSS.titleInv}>¿Qué tipo de inversión estás buscando?</h3>
-          <h4 className={InputCSS.subtitleInv}>¿Cuál es la mejor opción?</h4>
+          <h4 className={InputCSS.subtitleInv}>Selecciona la mejor opcion para vos</h4>
           <div className={InputCSS.tabs}>
             <input
               type="radio"
@@ -146,7 +146,7 @@ const ShopInversion = () => {
           {/* Contenido específico para inversión residencial */}
           {tipoInversion === 'residencial' && (
             <div className={InputCSS.content}>
-              <h3 className={InputCSS.titleSel}>Selecciona la mejor opcion para vos</h3>
+              {/* <h3 className={InputCSS.titleSel}>Selecciona la mejor opcion para vos</h3> */}
               <div>
               <Inputs seleccion={handleSeleccionUpdate}/>
                 <div className={InputCSS.botonComercial}>
