@@ -103,7 +103,7 @@ const ShopInversion = () => {
                   required
                 />
               </div>
-              <div className={`${InputCSS.montoSelected} ${InputCSS.separado}`}>
+              <div className={`${InputCSS.monto} ${InputCSS.separado}`}>
                 <p className={InputCSS.result}>Ganancia anual estimada</p>
                 <p>$ {calcularGananciaAnual()}</p>
               </div>
