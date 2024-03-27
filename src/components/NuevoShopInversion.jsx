@@ -9,6 +9,9 @@ import Checkout from "./Checkout";
 
 initMercadoPago("TEST-8cc0de02-11c6-4f51-86f9-5243bcc0b1cd");
 
+
+
+
 const ShopInversion = () => {
   const [tipoInversion, setTipoInversion] = useState('comercial');
   const [montoInversion, setMontoInversion] = useState();
@@ -39,6 +42,9 @@ const ShopInversion = () => {
     setMostrarContenidoInversion(false);
     setMostrarContenedorPrincipal(false);
   };
+
+
+
 
 
   const [seleccion, setSeleccion]= useState({});
@@ -116,7 +122,7 @@ const ShopInversion = () => {
               </div>
               
               <div className={InputCSS.botonComercial}>
-              <Button
+                <Button
                     onClick={handleInvertir}
                     sx={{
                       color: 'white',
@@ -145,8 +151,8 @@ const ShopInversion = () => {
               <Inputs seleccion={handleSeleccionUpdate}/>
                 <div className={InputCSS.botonComercial}>
                   <Button
-                        onClick={handleInvertir}
-                        sx={{
+                          onClick={handleInvertir}
+                          sx={{
                           color: 'white',
                           backgroundColor: 'black',
                           borderRadius: '50px',
@@ -281,7 +287,7 @@ const ShopInversion = () => {
             <div className={InputCSS.botonComercial}>
             <Button
             
-                        sx={{
+                          sx={{
                           color: 'white',
                           backgroundColor: 'black',
                           borderRadius: '50px',
@@ -331,7 +337,7 @@ const ShopInversion = () => {
                   <p>2%</p>
                 </div>
               </div>
-              
+
               <div>
                 <button onClick={handleInvertir}>Invertir</button>
               </div>
