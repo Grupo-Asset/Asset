@@ -74,28 +74,6 @@ function App() {
   }, [activar,playAnimation, notificar, notification]);
 
 
-  
-    // useEffect(() => {
-    //   const handleLocationChange = () => {
-    //     const currentPath = window.location.pathname;
-    //     // Realiza las acciones necesarias con la ubicación actual
-    //     alert('La ubicación ha cambiado:', currentPath);
-    //   };
-  
-    //   // Agrega un event listener para detectar cambios en la ubicación
-    //   window.addEventListener('popstate', handleLocationChange);
-  
-    //   // Limpia el event listener cuando el componente se desmonte
-    //   return () => {
-    //     window.removeEventListener('popstate', handleLocationChange);
-    //   };
-    // }, [BrowserRouter,Base,Footer]);
-
-
-
-
-  
-
   return (
     <InternalProvider context={payContext}>
     <NotificationContext context={contextValue}>
